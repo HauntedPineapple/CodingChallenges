@@ -7,10 +7,12 @@ namespace VowelSubstrings
     {
         /// <summary>
         /// Finds the substring in a given string 
-        /// that contains the most vowels.
+        /// that contains the most vowels
         /// If there are multiple strings with the same number
         /// of maximum vowels, returns the one with
-        /// the lowest index
+        /// the lowest index.
+        /// If no vowels exist in the string,
+        /// returns "Not found".
         /// </summary>
         /// <param name="s">string of lowercase english letters</param>
         /// <param name="k">length of substring to create</param>
@@ -25,6 +27,7 @@ namespace VowelSubstrings
             string newString;
             int numVowels = 0;
             char[] vowels = new char[5] { 'a', 'e', 'i', 'o', 'u' };
+
             for (int i = 0; i < 5; i++)
             {
                 if (s.Contains(vowels[i]))
@@ -33,7 +36,7 @@ namespace VowelSubstrings
                 }
             }
             if (numVowels == 0)
-            {
+            { // if no vowels exist, exit
                 return result;
             }
             numVowels = 0;
