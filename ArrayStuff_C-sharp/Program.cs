@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Array_Summation
+namespace ArrayStuff_C_sharp
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            testArraySummation();
+        }
+
         /// <summary>
         /// Returns "true" if any two numbers in the
         /// first array add up to any number
         /// in the second array and "false" otherwise
         /// </summary>
-        public static string arraySummation(int[] array_1, int[] array_2)
+        static bool arraySummation(int[] array_1, int[] array_2)
         {
-            return "FALSE";
+            return false;
         }
 
-        static void Main(string[] args)
+        static void testArraySummation()
         {
             int[] array_1, array_2;
 
@@ -34,7 +42,7 @@ namespace Array_Summation
                 Console.Write(number + " ");
             }
             Console.WriteLine("");
-            Console.WriteLine("Result: " + arraySummation(array_1, array_2));
+            Console.WriteLine("Result: " + arraySummation(array_1, array_2).ToString());
 
             Console.WriteLine("=========== Test Case #2 ===========");
             array_1 = new int[3] { 9, 6, 12 };
@@ -51,7 +59,8 @@ namespace Array_Summation
                 Console.Write(number + " ");
             }
             Console.WriteLine("");
-            Console.WriteLine("Result: " + arraySummation(array_1, array_2));
+            Console.WriteLine("Result: " + arraySummation(array_1, array_2).ToString());
         }
+
     }
 }

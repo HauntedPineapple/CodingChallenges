@@ -1,10 +1,17 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace VowelSubstrings
+namespace StringStuff_C_sharp
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            testFindVowelSubstring();
+        }
         /// <summary>
         /// Finds the substring in a given string 
         /// that contains the most vowels
@@ -18,7 +25,7 @@ namespace VowelSubstrings
         /// <param name="k">length of substring to create</param>
         /// <returns>The substring of the given length that
         /// contains the most vowels</returns>
-        public static string findSubstring(string s, int k)
+        public static string findVowelSubstring(string s, int k)
         {
             string result = "Not found!";
             // contains the substrings and the number of vowels in those substrings
@@ -85,8 +92,7 @@ namespace VowelSubstrings
 
             return results[0];
         }
-
-        static void Main(string[] args)
+        static void testFindVowelSubstring()
         {
             string s = "caberqiitefg";
             int k = 5;

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapeVelocity_C-sharp", "EscapeVelocity_C-sharp.csproj", "{CDB572D9-3229-4B4A-9F51-7913DA06D6FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDB572D9-3229-4B4A-9F51-7913DA06D6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB572D9-3229-4B4A-9F51-7913DA06D6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB572D9-3229-4B4A-9F51-7913DA06D6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB572D9-3229-4B4A-9F51-7913DA06D6FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A36065D-DC49-4C5D-B8F8-B19B1A9C35CF}
+	EndGlobalSection
+EndGlobal
