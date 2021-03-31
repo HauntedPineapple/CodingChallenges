@@ -9,7 +9,6 @@ Examples:
 	returns TRUE because -1 + 3 is 2, also -1 + 8 = 7
 
 	Given:
-	Given:
 	array_1 = {9, 6, 12}
 	array_2 = {1, 2, 3}
 	returns FALSE because no pair of numbers in the first array add up to
