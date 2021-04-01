@@ -11,6 +11,8 @@ namespace StringStuff_C_sharp
         static void Main(string[] args)
         {
             testFindVowelSubstring();
+
+            Console.ReadLine();
         }
         /// <summary>
         /// Finds the substring in a given string 
@@ -25,7 +27,7 @@ namespace StringStuff_C_sharp
         /// <param name="k">length of substring to create</param>
         /// <returns>The substring of the given length that
         /// contains the most vowels</returns>
-        public static string findVowelSubstring(string s, int k)
+        public static string FindVowelSubstring(string s, int k)
         {
             string result = "Not found!";
             // contains the substrings and the number of vowels in those substrings
@@ -96,19 +98,19 @@ namespace StringStuff_C_sharp
         {
             string s = "caberqiitefg";
             int k = 5;
-            Console.WriteLine(findSubstring(s, k));
+            Console.WriteLine(FindVowelSubstring(s, k));
 
             s = "aeiouia";
             k = 3;
-            Console.WriteLine(findSubstring(s, k));
+            Console.WriteLine(FindVowelSubstring(s, k));
 
             s = "azerdii";
             k = 5;
-            Console.WriteLine(findSubstring(s, k));
+            Console.WriteLine(FindVowelSubstring(s, k));
 
             s = "qwdftr";
             k = 2;
-            Console.WriteLine(findSubstring(s, k));
+            Console.WriteLine(FindVowelSubstring(s, k));
         }
     }
 }
