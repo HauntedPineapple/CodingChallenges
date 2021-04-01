@@ -12,7 +12,7 @@ namespace MathStuff_C_sharp
         {
             //TestLinearSolver();
             //Console.WriteLine();
-            //TestQuadraticRootFinder();
+            TestQuadraticRootFinder();
             //Console.WriteLine();
             //TestQuadraticSolver();
             //Console.WriteLine();
@@ -59,10 +59,21 @@ namespace MathStuff_C_sharp
         /// <returns>Root value of the equation ax^2 + bx + c</returns>
         static string FindQuadraticRoot(int a, int b, int c)
         {
-            string result = "NULL";
-            // If the discriminant is negative, there are two complex solutions
-            // so return "Null"
-            return result;
+            double root;
+            // If the discriminant, b2−4ac, is negative, 
+            //there are two complex solutions so return "Null"
+            if (Math.Sqrt(Math.Pow(b, 2) - 4 * a * c) < 0)
+            {
+                return "NULL";
+            }
+
+            // Quadratic equation: (-b+√(b^2-4ac))/2a
+            root =-b+ Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
+            Console.WriteLine(root);
+            root = root / (2 * a);
+            Console.WriteLine(root);
+            root = (int)root;
+            return root.ToString();
         }
         static void TestQuadraticRootFinder()
         {
@@ -78,21 +89,21 @@ namespace MathStuff_C_sharp
             a = 1;
             b = -12;
             c = -28;
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
-            Console.WriteLine("has the root(s): x = " + FindQuadraticRoot(a, b, c));
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
+            Console.WriteLine("has the root: x = " + FindQuadraticRoot(a, b, c));
 
             Console.WriteLine("============ Test 2 ============");
             a = 2;
             b = -7;
             c = 3;
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("has the root: x = " + FindQuadraticRoot(a, b, c));
 
             Console.WriteLine("============ Test 3 ============");
             a = 1;
             b = 2;
             c = -3;
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("has the root: x = " + FindQuadraticRoot(a, b, c));
         }
         #endregion
@@ -391,7 +402,7 @@ namespace MathStuff_C_sharp
             Console.WriteLine("============ Test 1 ============");
             h = 5;
             m = 30;
-            Console.WriteLine("The smallest angle between the hour and minute hands when the time is "+h+":"+m+" is "+findAngle(h,m)+ "°");
+            Console.WriteLine("The smallest angle between the hour and minute hands when the time is " + h + ":" + m + " is " + findAngle(h, m) + "°");
 
             Console.WriteLine("============ Test 2 ============");
             h = 9;
