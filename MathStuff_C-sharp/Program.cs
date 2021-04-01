@@ -22,8 +22,8 @@ namespace MathStuff_C_sharp
             //TestQuadraticVertex();
             //Console.WriteLine();
 
-            //TestQuadraticRootSum();
-            //Console.WriteLine();
+            TestQuadraticRootSum();
+            Console.WriteLine();
 
             //TestQuarticSolver();
             //Console.WriteLine();
@@ -77,9 +77,7 @@ namespace MathStuff_C_sharp
 
             // Quadratic equation: (-b+√(b^2-4ac))/2a
             root = -b + Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
-            Console.WriteLine(root);
             root = root / (2 * a);
-            Console.WriteLine(root);
             root = (int)root;
             return root.ToString();
         }
@@ -232,12 +230,31 @@ namespace MathStuff_C_sharp
         /// <param name="a">coefficient of x^2</param>
         /// <param name="b">coefficient of x</param>
         /// <param name="c">constant term</param>
-        static float SumOfQuadraticRoots(int a, int b, int c)
+        static double SumOfQuadraticRoots(int a, int b, int c)
         {
             /*Round answer to two decimal places.
 	        If there is only one real root return 1.
         	If there are no real roots, return 0.*/
-            return 0;
+
+            if (FindNumOfQuadraticSolutions(a,b,c) > 0)
+            {
+                double root_1, root_2;
+                root_1 = -b + Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
+                root_1 = root_1 / (2 * a);
+                root_2 = -b - Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
+                root_2 = root_2 / (2 * a);
+                return Math.Round(root_1 + root_2,2);
+            }
+            if (FindNumOfQuadraticSolutions(a, b, c) == 0)
+            {
+                return 1;
+            }
+            if (FindNumOfQuadraticSolutions(a, b, c) < 0)
+            {
+                return 0;
+            }
+
+            return -1;
         }
         static void TestQuadraticRootSum()
         {
@@ -254,21 +271,21 @@ namespace MathStuff_C_sharp
             b = 4;
             c = -6;
             Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
-            Console.Write("is " + SumOfQuadraticRoots(a, b, c));
+            Console.WriteLine("is " + SumOfQuadraticRoots(a, b, c));
 
             Console.WriteLine("============ Test 2 ============");
             a = 3;
             b = 4;
             c = -3;
             Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
-            Console.Write("is " + SumOfQuadraticRoots(a, b, c));
+            Console.WriteLine("is " + SumOfQuadraticRoots(a, b, c));
 
             Console.WriteLine("============ Test 3 ============");
             a = 4;
             b = 3;
             c = 8;
             Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
-            Console.Write("is " + SumOfQuadraticRoots(a, b, c));
+            Console.WriteLine("is " + SumOfQuadraticRoots(a, b, c));
         }
         #endregion
 
