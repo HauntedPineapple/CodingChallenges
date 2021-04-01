@@ -11,13 +11,22 @@ namespace MathStuff_C_sharp
         static void Main(string[] args)
         {
             //TestLinearSolver();
+            //Console.WriteLine();
             //TestQuadraticRootFinder();
+            //Console.WriteLine();
             //TestQuadraticSolver();
+            //Console.WriteLine();
             //TestQuadraticVertex();
+            //Console.WriteLine();
             //TestQuadraticRootSum();
+            //Console.WriteLine();
             //TestQuarticSolver();
+            //Console.WriteLine();
             //TestIntegral();
+            //Console.WriteLine();
             //TestMaxDistance();
+            //Console.WriteLine();
+            //TestClockAngle();
 
             Console.ReadLine();
         }
@@ -33,7 +42,7 @@ namespace MathStuff_C_sharp
             Console.WriteLine("============ Solve a Linear Equation ============");
 
             Console.WriteLine("============ Test 1 ============");
-            Console.WriteLine("4x-7=x+11 -> "+LinearEquationSolver("4x-7=x+11"));
+            Console.WriteLine("4x-7=x+11 -> " + LinearEquationSolver("4x-7=x+11"));
 
             Console.WriteLine("============ Test 2 ============");
             Console.WriteLine("3x=2x+x -> " + LinearEquationSolver("3x=2x+x"));
@@ -48,37 +57,43 @@ namespace MathStuff_C_sharp
         /// <param name="b">coefficient of x</param>
         /// <param name="c">constant term</param>
         /// <returns>Root value of the equation ax^2 + bx + c</returns>
-        static int FindQuadraticRoot(int a, int b, int c)
+        static string FindQuadraticRoot(int a, int b, int c)
         {
-            // Calculate only the root that sums the square root of the discriminant, not the one that subtracts it
-            return 0;
+            string result = "NULL";
+            // If the discriminant is negative, there are two complex solutions
+            // so return "Null"
+            return result;
         }
         static void TestQuadraticRootFinder()
         {
             Console.WriteLine("============ Quadratic Equation ============");
             int a, b, c;
+            Console.WriteLine("A quadratic equation can be represented by the coefficients \"a\", \"b\" and \"c\"");
+            Console.WriteLine("\"a\" is the coefficient of x^2");
+            Console.WriteLine("\"b\" is the coefficient of x");
+            Console.WriteLine("\"c\" is the constant term");
+            Console.WriteLine("And can be written as ax^2 + bx + c");
 
             Console.WriteLine("============ Test 1 ============");
             a = 1;
             b = -12;
             c = -28;
-            Console.Write("The quadratic equation with coefficients a = "+a+" b = "+b+" c ="+c);
-            Console.WriteLine(" has the root: x = "+FindQuadraticRoot(a,b,c));
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("has the root(s): x = " + FindQuadraticRoot(a, b, c));
 
             Console.WriteLine("============ Test 2 ============");
             a = 2;
             b = -7;
             c = 3;
-            Console.Write("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
-            Console.WriteLine(" has the root: x = " + FindQuadraticRoot(a, b, c));
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("has the root: x = " + FindQuadraticRoot(a, b, c));
 
             Console.WriteLine("============ Test 3 ============");
             a = 1;
             b = 2;
             c = -3;
-            Console.Write("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
-            Console.WriteLine(" has the root: x = " + FindQuadraticRoot(a, b, c));
-
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("has the root: x = " + FindQuadraticRoot(a, b, c));
         }
         #endregion
 
@@ -95,9 +110,32 @@ namespace MathStuff_C_sharp
         {
             Console.WriteLine("============ How Many Solutions Does This Quadratic Have? ============");
             int a, b, c;
+            Console.WriteLine("A quadratic equation can be represented by the coefficients \"a\", \"b\" and \"c\"");
+            Console.WriteLine("\"a\" is the coefficient of x^2");
+            Console.WriteLine("\"b\" is the coefficient of x");
+            Console.WriteLine("\"c\" is the constant term");
+            Console.WriteLine("And can be written as ax^2 + bx + c");
 
             Console.WriteLine("============ Test 1 ============");
+            a = 1;
+            b = 0;
+            c = -1;
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("Has " + FindNumOfQuadraticSolutions(a, b, c) + " solution(s).");
 
+            Console.WriteLine("============ Test 2 ============");
+            a = 1;
+            b = 0;
+            c = 0;
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("Has " + FindNumOfQuadraticSolutions(a, b, c) + " solution(s).");
+
+            Console.WriteLine("============ Test 3 ============");
+            a = 1;
+            b = 0;
+            c = 1;
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("Has " + FindNumOfQuadraticSolutions(a, b, c) + " solution(s).");
         }
         #endregion
 
@@ -105,19 +143,47 @@ namespace MathStuff_C_sharp
         /// <param name="a">coefficient of x^2</param>
         /// <param name="b">coefficient of x</param>
         /// <param name="c">constant term</param>
-        /// <returns>The vertex of the quadratic curve represented by the equation ax^2 + bx + c</returns>
-        static float[,] FindQuadraticVertex(int a, int b, int c)
+        /// <returns>The vertex of the quadratic curve represented by the equation ax^2 + bx + c
+        /// with the fist number in the array being the x-value and the second value being the y-value</returns>
+        static float[] FindQuadraticVertex(int a, int b, int c)
         {
             // round answers to two decimal places
-            return null;
+            return new float[] { 0, 0 };
         }
         static void TestQuadraticVertex()
         {
             Console.WriteLine("============ Vertex of a Quadratic ============");
             int a, b, c;
+            float[] solution;
+            Console.WriteLine("A quadratic equation can be represented by the coefficients \"a\", \"b\" and \"c\"");
+            Console.WriteLine("\"a\" is the coefficient of x^2");
+            Console.WriteLine("\"b\" is the coefficient of x");
+            Console.WriteLine("\"c\" is the constant term");
+            Console.WriteLine("And can be written as ax^2 + bx + c");
 
             Console.WriteLine("============ Test 1 ============");
+            a = 1;
+            b = 0;
+            c = 25;
+            solution = FindQuadraticVertex(a, b, c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("has a vertex at (" + solution[0] + ", " + solution[1] + ")");
 
+            Console.WriteLine("============ Test 2 ============");
+            a = -1;
+            b = 0;
+            c = 25;
+            solution = FindQuadraticVertex(a, b, c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("has a vertex at (" + solution[0] + ", " + solution[1] + ")");
+
+            Console.WriteLine("============ Test 3 ============");
+            a = 1;
+            b = 10;
+            c = 4;
+            solution = FindQuadraticVertex(a, b, c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("has a vertex at (" + solution[0] + ", " + solution[1] + ")");
         }
         #endregion
 
@@ -136,9 +202,32 @@ namespace MathStuff_C_sharp
         {
             Console.WriteLine("============ Sum of Quadratic Roots ============");
             int a, b, c;
+            Console.WriteLine("A quadratic equation can be represented by the coefficients \"a\", \"b\" and \"c\"");
+            Console.WriteLine("\"a\" is the coefficient of x^2");
+            Console.WriteLine("\"b\" is the coefficient of x");
+            Console.WriteLine("\"c\" is the constant term");
+            Console.WriteLine("And can be written as ax^2 + bx + c");
 
             Console.WriteLine("============ Test 1 ============");
+            a = 2;
+            b = 4;
+            c = -6;
+            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.Write("is " + SumOfQuadraticRoots(a, b, c));
 
+            Console.WriteLine("============ Test 2 ============");
+            a = 3;
+            b = 4;
+            c = -3;
+            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.Write("is " + SumOfQuadraticRoots(a, b, c));
+
+            Console.WriteLine("============ Test 3 ============");
+            a = 4;
+            b = 3;
+            c = 8;
+            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.Write("is " + SumOfQuadraticRoots(a, b, c));
         }
         #endregion
 
@@ -155,9 +244,32 @@ namespace MathStuff_C_sharp
         {
             Console.WriteLine("============ Quartic Equation ============");
             int a, b, c;
+            Console.WriteLine("A quartic equation can be represented by the coefficients \"a\", \"b\" and \"c\"");
+            Console.WriteLine("\"a\" is the coefficient of x^4");
+            Console.WriteLine("\"b\" is the coefficient of x^2");
+            Console.WriteLine("\"c\" is the constant term");
+            Console.WriteLine("And can be written as ax^4 + bx^2 +c");
 
             Console.WriteLine("============ Test 1 ============");
+            a = 1;
+            b = -5;
+            c = 4;
+            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("Has " + FindNumOfQuarticSolutions(a, b, c) + " solutions.");
 
+            Console.WriteLine("============ Test 2 ============");
+            a = 4;
+            b = 3;
+            c = -1;
+            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("Has " + FindNumOfQuarticSolutions(a, b, c) + " solutions.");
+
+            Console.WriteLine("============ Test 3 ============");
+            a = 1;
+            b = 10;
+            c = 9;
+            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("Has " + FindNumOfQuarticSolutions(a, b, c) + " solutions.");
         }
         #endregion
 
@@ -178,9 +290,32 @@ namespace MathStuff_C_sharp
         {
             Console.WriteLine("============ Integral of a Function ============");
             int b, m, n;
+            Console.WriteLine("Here we will calculate the definite integral of the function f(x)=(b+1)*x^b");
+            Console.WriteLine("with respect to x, from x=m,x=n, where b, n and m are constants.");
 
             Console.WriteLine("============ Test 1 ============");
+            b = 0;
+            m = 2;
+            n = 5;
+            Console.WriteLine("The integral of the function f(x)=(b+1)*x^b from the interval x = m to x = n, where");
+            Console.WriteLine("b = " + b + "   m = " + m + "   n = " + n + "");
+            Console.WriteLine("is " + Integral(b, m, n));
 
+            Console.WriteLine("============ Test 2 ============");
+            b = 2;
+            m = 4;
+            n = 7;
+            Console.WriteLine("The integral of the function f(x)=(b+1)*x^b from the interval x = m to x = n, where");
+            Console.WriteLine("b = " + b + "   m = " + m + "   n = " + n + "");
+            Console.WriteLine("is " + Integral(b, m, n));
+
+            Console.WriteLine("============ Test 3 ============");
+            b = 5;
+            m = 9;
+            n = 3;
+            Console.WriteLine("The integral of the function f(x)=(b+1)*x^b from the interval x = m to x = n, where");
+            Console.WriteLine("b = " + b + "   m = " + m + "   n = " + n + "");
+            Console.WriteLine("is " + Integral(b, m, n));
         }
         #endregion
 
@@ -232,6 +367,41 @@ namespace MathStuff_C_sharp
             airCon = false;
             Console.WriteLine("Fuel: " + fuel + " Fuel Usage" + fuelUsage + "liters/100km Air conditioner on? " + airCon.ToString());
             Console.WriteLine("Maximum distance: " + MaxDistance(fuel, fuelUsage, passengers, airCon) + "km");
+        }
+        #endregion
+
+        #region Clock Angle Problem
+        /// <summary>
+        /// Returns the smallest angle between the hands of an analog
+        /// clock at a given time in DEGREES
+        /// </summary>
+        static int findAngle(int hour, int minute)
+        {
+            return 0;
+        }
+        /// Remember:
+        /// π rad = 180°
+        /// 1° = π/180°
+        /// radians = degrees × π / 180°
+        /// degrees = radians × 180° / π
+        static void TestClockAngle()
+        {
+            Console.WriteLine("============ Clock Angle Problem ============");
+            int h, m;
+            Console.WriteLine("============ Test 1 ============");
+            h = 5;
+            m = 30;
+            Console.WriteLine("The smallest angle between the hour and minute hands when the time is "+h+":"+m+" is "+findAngle(h,m)+ "°");
+
+            Console.WriteLine("============ Test 2 ============");
+            h = 9;
+            m = 00;
+            Console.WriteLine("The smallest angle between the hour and minute hands when the time is " + h + ":" + m + " is " + findAngle(h, m) + "°");
+
+            Console.WriteLine("============ Test 3 ============");
+            h = 125;
+            m = 00;
+            Console.WriteLine("The smallest angle between the hour and minute hands when the time is " + h + ":" + m + " is " + findAngle(h, m) + "°");
         }
         #endregion
     }
