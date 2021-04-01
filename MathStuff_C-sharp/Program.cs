@@ -12,20 +12,28 @@ namespace MathStuff_C_sharp
         {
             //TestLinearSolver();
             //Console.WriteLine();
-            TestQuadraticRootFinder();
+
+            //TestQuadraticRootFinder();
             //Console.WriteLine();
-            //TestQuadraticSolver();
-            //Console.WriteLine();
+
+            TestQuadraticSolver();
+            Console.WriteLine();
+
             //TestQuadraticVertex();
             //Console.WriteLine();
+
             //TestQuadraticRootSum();
             //Console.WriteLine();
+
             //TestQuarticSolver();
             //Console.WriteLine();
+
             //TestIntegral();
             //Console.WriteLine();
+
             //TestMaxDistance();
             //Console.WriteLine();
+
             //TestClockAngle();
 
             Console.ReadLine();
@@ -68,7 +76,7 @@ namespace MathStuff_C_sharp
             }
 
             // Quadratic equation: (-b+√(b^2-4ac))/2a
-            root =-b+ Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
+            root = -b + Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
             Console.WriteLine(root);
             root = root / (2 * a);
             Console.WriteLine(root);
@@ -115,7 +123,20 @@ namespace MathStuff_C_sharp
         /// <returns>The number of solutions to the equation ax^2 + bx + c</returns>
         static int FindNumOfQuadraticSolutions(int a, int b, int c)
         {
-            return 0;
+            double discriminant = Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
+            if (discriminant > 0)
+            {
+                return 2;
+            }
+            if (discriminant == 0)
+            {
+                return 1;
+            }
+            if (discriminant < 0)
+            {
+                return 0;
+            }
+            return -1;
         }
         static void TestQuadraticSolver()
         {
@@ -131,21 +152,21 @@ namespace MathStuff_C_sharp
             a = 1;
             b = 0;
             c = -1;
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("Has " + FindNumOfQuadraticSolutions(a, b, c) + " solution(s).");
 
             Console.WriteLine("============ Test 2 ============");
             a = 1;
             b = 0;
             c = 0;
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("Has " + FindNumOfQuadraticSolutions(a, b, c) + " solution(s).");
 
             Console.WriteLine("============ Test 3 ============");
             a = 1;
             b = 0;
             c = 1;
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("Has " + FindNumOfQuadraticSolutions(a, b, c) + " solution(s).");
         }
         #endregion
@@ -177,7 +198,7 @@ namespace MathStuff_C_sharp
             b = 0;
             c = 25;
             solution = FindQuadraticVertex(a, b, c);
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("has a vertex at (" + solution[0] + ", " + solution[1] + ")");
 
             Console.WriteLine("============ Test 2 ============");
@@ -185,7 +206,7 @@ namespace MathStuff_C_sharp
             b = 0;
             c = 25;
             solution = FindQuadraticVertex(a, b, c);
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("has a vertex at (" + solution[0] + ", " + solution[1] + ")");
 
             Console.WriteLine("============ Test 3 ============");
@@ -193,7 +214,7 @@ namespace MathStuff_C_sharp
             b = 10;
             c = 4;
             solution = FindQuadraticVertex(a, b, c);
-            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("has a vertex at (" + solution[0] + ", " + solution[1] + ")");
         }
         #endregion
@@ -223,21 +244,21 @@ namespace MathStuff_C_sharp
             a = 2;
             b = 4;
             c = -6;
-            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.Write("is " + SumOfQuadraticRoots(a, b, c));
 
             Console.WriteLine("============ Test 2 ============");
             a = 3;
             b = 4;
             c = -3;
-            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.Write("is " + SumOfQuadraticRoots(a, b, c));
 
             Console.WriteLine("============ Test 3 ============");
             a = 4;
             b = 3;
             c = 8;
-            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The sum of the roots of the quadratic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.Write("is " + SumOfQuadraticRoots(a, b, c));
         }
         #endregion
@@ -265,21 +286,21 @@ namespace MathStuff_C_sharp
             a = 1;
             b = -5;
             c = 4;
-            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("Has " + FindNumOfQuarticSolutions(a, b, c) + " solutions.");
 
             Console.WriteLine("============ Test 2 ============");
             a = 4;
             b = 3;
             c = -1;
-            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("Has " + FindNumOfQuarticSolutions(a, b, c) + " solutions.");
 
             Console.WriteLine("============ Test 3 ============");
             a = 1;
             b = 10;
             c = 9;
-            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c =" + c);
+            Console.WriteLine("The quartic equation with coefficients a = " + a + " b = " + b + " c = " + c);
             Console.WriteLine("Has " + FindNumOfQuarticSolutions(a, b, c) + " solutions.");
         }
         #endregion
