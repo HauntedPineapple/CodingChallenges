@@ -26,7 +26,7 @@ Examples:
 
 Notes:
 •	Quadratic equation is always guaranteed to have a root.
-•	Calculate only the root that sums the square root of the discriminant, not the one that subtracts it.
+•	•	Calculate only the root that gives a positive discriminant, not the one that gives a negative
 •	Round the value / return only integer value.
 ========================================================
 How Many Solutions Does This Quadratic Have?

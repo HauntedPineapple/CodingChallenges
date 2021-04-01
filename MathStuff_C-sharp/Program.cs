@@ -16,8 +16,8 @@ namespace MathStuff_C_sharp
             //TestQuadraticRootFinder();
             //Console.WriteLine();
 
-            TestQuadraticSolver();
-            Console.WriteLine();
+            //TestQuadraticSolver();
+            //Console.WriteLine();
 
             //TestQuadraticVertex();
             //Console.WriteLine();
@@ -176,17 +176,26 @@ namespace MathStuff_C_sharp
         /// <param name="b">coefficient of x</param>
         /// <param name="c">constant term</param>
         /// <returns>The vertex of the quadratic curve represented by the equation ax^2 + bx + c
-        /// with the fist number in the array being the x-value and the second value being the y-value</returns>
-        static float[] FindQuadraticVertex(int a, int b, int c)
+        /// with the first number in the array being the x-value and the second value being the y-value</returns>
+        static double[] FindQuadraticVertex(int a, int b, int c)
         {
-            // round answers to two decimal places
-            return new float[] { 0, 0 };
+            /// A quadratic equation can be expressed two ways:
+            /// Standard form: f(x)=ax^2+bx+c
+            /// Vertex form: f(x)=a(x+h)^2+k
+            /// Where (-h, k) is the vertex
+            double h = 0;
+            double k = 0;
+
+            h = b / 2 * a;
+            k = c - (Math.Pow(b, 2) / 4 * a);
+
+            return new double[] { -h, k };
         }
         static void TestQuadraticVertex()
         {
             Console.WriteLine("============ Vertex of a Quadratic ============");
             int a, b, c;
-            float[] solution;
+            double[] solution;
             Console.WriteLine("A quadratic equation can be represented by the coefficients \"a\", \"b\" and \"c\"");
             Console.WriteLine("\"a\" is the coefficient of x^2");
             Console.WriteLine("\"b\" is the coefficient of x");
