@@ -12,7 +12,7 @@ namespace StringStuff_C_sharp
         {
             //TestFindVowelSubstring();
             //Console.WriteLine();
-            //TestStringCycler();
+            TestStringCycler();
             //Console.WriteLine();
             //TestLongestCommonString();
             //Console.WriteLine();
@@ -146,7 +146,21 @@ namespace StringStuff_C_sharp
         #region String Cycling
         static string StringCycler(string str_1, string str_2)
         {
-            return "";
+            string result = "";
+            int count = 0;
+            while (count < str_2.Length)
+            {
+                for (int i = 0; i < str_1.Length; i++)
+                {
+                    if (count == str_2.Length)
+                    {
+                        break;
+                    }
+                    result += str_1[i];
+                    count++;
+                }
+            }
+            return result;
         }
         static void TestStringCycler()
         {
@@ -163,8 +177,8 @@ namespace StringStuff_C_sharp
             Console.WriteLine("StringCycler(\"" + str_1 + "\", \"" + str_2 + "\") -> \"" + StringCycler(str_1, str_2) + "\"");
 
             Console.WriteLine("============== Test 3 ==============");
-            str_1 = "good morning";
-            str_2 = "ha";
+            str_1 = "ha";
+            str_2 = "good morning";
             Console.WriteLine("StringCycler(\"" + str_1 + "\", \"" + str_2 + "\") -> \"" + StringCycler(str_1, str_2) + "\"");
         }
         #endregion
