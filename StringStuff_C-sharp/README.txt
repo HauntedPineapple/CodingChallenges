@@ -28,8 +28,6 @@ Task: Create a function that takes a string containing only letters from a to z 
 Examples: 
 	MissingAlphabets("abcdefghijklmnopqrstuvwxy") ➞ "z"
 	// "z" is missing.
-	MissingAlphabets("aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyy") ➞ "zz"
-	// Given string has a set of two alphabets so output will be "zz"
 	MissingAlphabets("edabit") ➞ "cfghjklmnopqrsuvwxyz"
 Note: If the string contains all letters from a-z, return an empty string ""
 ========================================================
