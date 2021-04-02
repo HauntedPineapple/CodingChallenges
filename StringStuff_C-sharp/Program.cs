@@ -10,7 +10,7 @@ namespace StringStuff_C_sharp
     {
         static void Main(string[] args)
         {
-            //TestFindVowelSubstring();
+            TestFindVowelSubstring();
             //Console.WriteLine();
             TestStringCycler();
             //Console.WriteLine();
@@ -22,7 +22,7 @@ namespace StringStuff_C_sharp
             //Console.WriteLine();
             //TestCountUnique();
             //Console.WriteLine();
-            //TestIsPalindrome();
+            TestIsPalindrome();
             //Console.WriteLine();
             //TestPalindromeBuilder();
             //Console.WriteLine();
@@ -270,7 +270,16 @@ namespace StringStuff_C_sharp
             {
                 return true;
             }
-            return false;
+
+            for (int i = 0; i < str.Length/2; i++)
+            {
+                if (str[i] != str[str.Length-i-1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
         static void TestIsPalindrome()
         {
