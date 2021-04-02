@@ -28,8 +28,8 @@ namespace StringStuff_C_sharp
             //TestMissingAlphabet();
             //Console.WriteLine();
 
-            TestIsTriangleWord();
-            Console.WriteLine();
+            //TestIsTriangleWord();
+            //Console.WriteLine();
 
             //TestCountUnique();
             //Console.WriteLine();
@@ -219,7 +219,7 @@ namespace StringStuff_C_sharp
         }
         #endregion
 
-        #region Triangle Words
+        #region Triangle Words - Done
         static bool IsTriangleWord(string str)
         {
             Dictionary<char, int> alphabetValues = new Dictionary<char, int>();
@@ -301,7 +301,7 @@ namespace StringStuff_C_sharp
                         Console.ForegroundColor = ConsoleColor.Gray;
                     }
                 }
-                Console.WriteLine("There are " + numTriangleWords + " triangle words out of "+numWords+" in " + filename);
+                Console.WriteLine("There are " + numTriangleWords + " triangle words out of " + numWords + " in " + filename);
                 input.Close();
             }
             catch (Exception e)
@@ -421,7 +421,7 @@ namespace StringStuff_C_sharp
         static void TestDistanceToNearestVowel()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Distance to Nearest Vowel ~~~~~~~~~~~~~~~~~");
-            string[] words = new string[] { "" };
+            string[] words = new string[] { "aaaaa", "babbb", "abcdabcd", "shopper" };
             int[] output;
             foreach (var item in words)
             {
@@ -625,33 +625,6 @@ namespace StringStuff_C_sharp
             {
                 Console.WriteLine(str + " -> " + ReverseString(str));
             }
-        }
-        #endregion
-
-
-
-        #region Quadratic Equation
-        /// <param name="a">coefficient of x^2</param>
-        /// <param name="b">coefficient of x</param>
-        /// <param name="c">constant term</param>
-        /// <returns>Root value of the equation ax^2 + bx + c</returns>
-        static double FindQuadraticRoot(int a, int b, int c)
-        {
-            double root;
-            // If the discriminant, b2−4ac, is negative, 
-            //there are two complex solutions so return "Null"
-            if (Math.Sqrt(Math.Pow(b, 2) - 4 * a * c) < 0)
-            {
-                // because this is a helper method for IsTriangleWord, we will have it return
-                // a number that is an invalid triangle number
-                return 2;
-            }
-
-            // Quadratic equation: (-b+√(b^2-4ac))/2a
-            root = -b + Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
-            root = root / (2 * a);
-
-            return root;
         }
         #endregion
     }
