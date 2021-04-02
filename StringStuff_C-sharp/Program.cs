@@ -16,37 +16,50 @@ namespace StringStuff_C_sharp
         static void Main(string[] args)
         {
             TestFindVowelSubstring();
-            //Console.WriteLine();
+            Console.WriteLine();
+
             TestStringCycler();
-            //Console.WriteLine();
+            Console.WriteLine();
+
             //TestLongestCommonString();
             //Console.WriteLine();
+
             //TestMissingAlphabet();
             //Console.WriteLine();
+
             //TestIsTriangleWord();
             //Console.WriteLine();
+
             //TestCountUnique();
             //Console.WriteLine();
+
             TestIsPalindrome();
-            //Console.WriteLine();
+            Console.WriteLine();
+
             //TestPalindromeBuilder();
             //Console.WriteLine();
+
             //TestDistanceToNearestVowel();
             //Console.WriteLine();
+
             TestIsValidHexCode();
-            //Console.WriteLine();
-            //TestKaracaEncrypt();
-            //Console.WriteLine();
+            Console.WriteLine();
+
+            TestKaracaEncrypt();
+            Console.WriteLine();
+
             //TestPermutations();
             //Console.WriteLine();
+
             //TestMaximumOccurance();
             //Console.WriteLine();
-            //TestReverseString();
+
+            TestReverseString();
 
             Console.ReadLine();
         }
 
-        #region Vowel Substrings
+        #region Vowel Substrings - Done
         /// <summary>
         /// Finds the substring in a given string 
         /// that contains the most vowels
@@ -131,15 +144,15 @@ namespace StringStuff_C_sharp
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Vowel Substrings ~~~~~~~~~~~~~~~~~");
             string[] s = new string[] { "caberqiitefg", "aeiouia", "azerdii", "qwdftr" };
-            int[] k = new int[] { 5,3,5,2};
+            int[] k = new int[] { 5, 3, 5, 2 };
             for (int i = 0; i < s.Length; i++)
             {
-                Console.WriteLine(s[i]+" --> "+FindVowelSubstring(s[i], k[i]));
+                Console.WriteLine(s[i] + " --> " + FindVowelSubstring(s[i], k[i]));
             }
         }
         #endregion
 
-        #region String Cycling
+        #region String Cycling - Done
         static string StringCycler(string str_1, string str_2)
         {
             string result = "";
@@ -248,7 +261,7 @@ namespace StringStuff_C_sharp
         }
         #endregion
 
-        #region Is the String a Palindrome?
+        #region Is the String a Palindrome? - Done
         static bool IsPalindrome(string str)
         {
             if (str.Length == 1)
@@ -364,12 +377,21 @@ namespace StringStuff_C_sharp
                 return false;
             }
             str = str.ToLower();
+            int count = 0;
             for (int i = 1; i < str.Length; i++)
             {
                 foreach (char character in validChars)
                 {
-
+                    if (str[i] == character)
+                    {
+                        count++;
+                    }
                 }
+                if (count != str.Length)
+                {
+                    return false;
+                }
+                count = 0;
             }
             return true;
         }
@@ -390,15 +412,43 @@ namespace StringStuff_C_sharp
         }
         #endregion
 
-        #region The Karaca's Encryption Algorithm
+        #region The Karaca's Encryption Algorithm - Done
         static string KaracaEncrypt(string str)
         {
-            return "";
+            str = ReverseString(str);
+            str = str.ToLower();
+            String output = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                switch (str[i])
+                {
+                    case 'a':
+                        output += 0;
+                        break;
+                    case 'e':
+                        output += 1;
+                        break;
+                    case 'i':
+                        output += 2;
+                        break;
+                    case 'o':
+                        output += 2;
+                        break;
+                    case 'u':
+                        output += 3;
+                        break;
+                    default:
+                        output += str[i];
+                        break;
+                }
+            }
+            output += "aca";
+            return output;
         }
         static void TestKaracaEncrypt()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Karaca's Encryption Algorithm ~~~~~~~~~~~~~~~~~");
-            string[] words = new string[] { "banana", "karaca", "burak" };
+            string[] words = new string[] { "banana", "karaca", "burak", "alpaca" };
             foreach (var word in words)
             {
                 Console.WriteLine(word + " --> " + KaracaEncrypt(word));
@@ -472,15 +522,22 @@ namespace StringStuff_C_sharp
         }
         #endregion
 
-        #region Recursive Reverse
+        #region Recursive Reverse - Done
+        /// <summary>
+        /// Reverses the given string using a a recursive method
+        /// </summary>
         static string ReverseString(string str)
         {
-            return "";
+            if (str.Length > 0)
+                return str[str.Length - 1] + ReverseString(str.Substring(0, str.Length - 1));
+            else
+                return str;
         }
         static void TestReverseString()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Recursive Reverse ~~~~~~~~~~~~~~~~~");
-            string[] words = new string[] { "Vertex", "permutations", "function" };
+            string[] words = new string[] { "Vertex", "permutations", "function", "Hello World!",
+                                            "Racecar", "please hire me", "video games", "recursion"};
             foreach (var str in words)
             {
                 Console.WriteLine(str + " -> " + ReverseString(str));
