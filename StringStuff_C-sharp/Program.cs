@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,11 +16,11 @@ namespace StringStuff_C_sharp
 
         static void Main(string[] args)
         {
-            TestFindVowelSubstring();
-            Console.WriteLine();
+            //TestFindVowelSubstring();
+            //Console.WriteLine();
 
-            TestStringCycler();
-            Console.WriteLine();
+            //TestStringCycler();
+            //Console.WriteLine();
 
             //TestLongestCommonString();
             //Console.WriteLine();
@@ -27,14 +28,14 @@ namespace StringStuff_C_sharp
             //TestMissingAlphabet();
             //Console.WriteLine();
 
-            //TestIsTriangleWord();
-            //Console.WriteLine();
+            TestIsTriangleWord();
+            Console.WriteLine();
 
             //TestCountUnique();
             //Console.WriteLine();
 
-            TestIsPalindrome();
-            Console.WriteLine();
+            //TestIsPalindrome();
+            //Console.WriteLine();
 
             //TestPalindromeBuilder();
             //Console.WriteLine();
@@ -42,11 +43,11 @@ namespace StringStuff_C_sharp
             //TestDistanceToNearestVowel();
             //Console.WriteLine();
 
-            TestIsValidHexCode();
-            Console.WriteLine();
+            //TestIsValidHexCode();
+            //Console.WriteLine();
 
-            TestKaracaEncrypt();
-            Console.WriteLine();
+            //TestKaracaEncrypt();
+            //Console.WriteLine();
 
             //TestPermutations();
             //Console.WriteLine();
@@ -54,7 +55,7 @@ namespace StringStuff_C_sharp
             //TestMaximumOccurance();
             //Console.WriteLine();
 
-            TestReverseString();
+            //TestReverseString();
 
             Console.ReadLine();
         }
@@ -221,26 +222,108 @@ namespace StringStuff_C_sharp
         #region Triangle Words
         static bool IsTriangleWord(string str)
         {
+            Dictionary<char, int> alphabetValues = new Dictionary<char, int>();
+            for (int i = 0; i < Alphabet.Length; i++)
+            {
+                alphabetValues.Add(Alphabet[i], i + 1);
+            }
+
+            int total = 0;
+            str = str.ToLower();
+            foreach (var letter in str)
+            {
+                foreach (KeyValuePair<char, int> kvp in alphabetValues)
+                {
+                    if (letter == kvp.Key)
+                    {
+                        total += kvp.Value;
+                        //continue;
+                    }
+                }
+            }
+            total *= 2;
+            total = -total;
+            /// A triangle number is defined as t(n) = 1/2*n(n+1)
+            /// We will use this knowledge to determine if the total is
+            /// a triangle word. If the total is a triangle number, that means
+            /// the word is a triangle word.
+            /// We will use the quadratic equation with a and b being 1, and
+            /// the total will be represented by c, the constant
+            /// If we get a whole number back, the word is a triangle word
+
+            double root = 0;
+            // If the discriminant, b2−4ac, is negative, 
+            //there are two complex solutions so return "false"
+            if (Math.Sqrt(1 - 4 * 1 * (double)total) < 0)
+            {
+                return false;
+            }
+
+            // Quadratic equation: (-b+√(b^2-4ac))/2a
+            root = -1 + Math.Sqrt(1 - 4 * 1 * (double)total);
+            root = root / 2;
+            if (root % 2 == 0 || root % 2 == 1)
+            {
+                return true;
+            }
+
             return false;
         }
+
         static void TestIsTriangleWord()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Triangle Words ~~~~~~~~~~~~~~~~~");
-            string[] words = new string[] { "SKY", "ARISE", "DENY", "RESPONSE",
-                                          "OBTAIN", "SOMETHING", "WHOSE", "ORGANIZATION",
-                                          "CONFLICT","EARLY","JOB","CURRICULUM","LABOUR"};
-            foreach (string word in words)
+            try
             {
-                if (IsTriangleWord(word))
+                string filename = "D:\\Repos\\CodingChallenges\\StringStuff_C-sharp\\p042_words.txt";
+                FileStream inStream = File.OpenRead(filename);
+                StreamReader input = new StreamReader(inStream);
+
+                string allText = input.ReadToEnd();
+                string[] allWords = allText.Split(',');
+
+                int numTriangleWords = 0;
+                int numWords = 0;
+                foreach (string word in allWords)
                 {
-                    Console.WriteLine(word + " is a triangle word");
+                    numWords++;
+                    if (IsTriangleWord(word))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        numTriangleWords++;
+                        Console.WriteLine(word + " IS a triangle word");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(word + " is NOT a triangle word");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
                 }
-                else
-                {
-                    Console.WriteLine(word + " is not a triangle word");
-                }
+                Console.WriteLine("There are " + numTriangleWords + " triangle words out of "+numWords+" in " + filename);
+                input.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading file!");
+                return;
             }
 
+            //string[] words = new string[] { "SKY", "ARISE", "DENY", "RESPONSE",
+            //                              "OBTAIN", "SOMETHING", "WHOSE", "ORGANIZATION",
+            //                              "CONFLICT","EARLY","JOB","CURRICULUM","LABOUR"};
+            //foreach (string word in words)
+            //{
+            //    if (IsTriangleWord(word))
+            //    {
+            //        Console.WriteLine(word + " IS a triangle word");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine(word + " is NOT a triangle word");
+            //    }
+            //}
         }
         #endregion
 
@@ -542,6 +625,33 @@ namespace StringStuff_C_sharp
             {
                 Console.WriteLine(str + " -> " + ReverseString(str));
             }
+        }
+        #endregion
+
+
+
+        #region Quadratic Equation
+        /// <param name="a">coefficient of x^2</param>
+        /// <param name="b">coefficient of x</param>
+        /// <param name="c">constant term</param>
+        /// <returns>Root value of the equation ax^2 + bx + c</returns>
+        static double FindQuadraticRoot(int a, int b, int c)
+        {
+            double root;
+            // If the discriminant, b2−4ac, is negative, 
+            //there are two complex solutions so return "Null"
+            if (Math.Sqrt(Math.Pow(b, 2) - 4 * a * c) < 0)
+            {
+                // because this is a helper method for IsTriangleWord, we will have it return
+                // a number that is an invalid triangle number
+                return 2;
+            }
+
+            // Quadratic equation: (-b+√(b^2-4ac))/2a
+            root = -b + Math.Sqrt(Math.Pow(b, 2) - 4 * a * c);
+            root = root / (2 * a);
+
+            return root;
         }
         #endregion
     }

@@ -8,8 +8,31 @@ namespace MatrixFunctions_C_sharp
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+
+        }
+
         static int[,] matrixMultiply(int[,] matrixA, int[,] matrixB)
         {
+            /// A matrix of MxN dimensions can only be multiplied
+            /// by another matrix of NxP dimensions
+            if (matrixA.GetLength(1) != matrixB.GetLength(0))
+            {
+                return null;
+            }
+            /// When a matrix of MxN dimensions is multiplied by
+            /// an array of NxP dimensions, the resulting array
+            /// has MxP dimensions
+            int[,] resultArray = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
+
+            for (int i = 0; i < matrixA.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrixB.GetLength(1); j++)
+                {
+
+                }
+            }
             return null;
         }
 
@@ -40,10 +63,6 @@ namespace MatrixFunctions_C_sharp
         static int[,] matrixTranspose(int[,] matrix)
         {
             return null;
-        }
-
-        static void Main(string[] args)
-        {
         }
     }
 }
