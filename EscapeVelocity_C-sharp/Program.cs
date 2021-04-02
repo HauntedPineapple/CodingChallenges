@@ -8,13 +8,21 @@ namespace EscapeVelocity_C_sharp
 {
     class Program
     {
-        static string escapeVelocity(string planet)
+        /// <summary>
+        /// Gravitational Constant:
+        /// G = 6.67e-11 Nm²/kg²
+        /// </summary>
+        const double G = 6.67e-11;
+
+        static string EscapeVelocity(string planet)
         {
+            String result = "";
             return "";
         }
 
-        static string systemEscapeVelocity(string planet)
+        static string SystemEscapeVelocity(string planet)
         {
+            String result = "";
             return "";
         }
 
