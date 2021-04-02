@@ -8,6 +8,11 @@ namespace StringStuff_C_sharp
 {
     class Program
     {
+        static char[] Alphabet = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+                                              'h', 'i', 'j', 'k', 'l', 'm', 'n',
+                                              'o', 'p', 'q', 'r', 's', 't', 'u',
+                                              'v', 'w', 'x', 'y', 'z' };
+
         static void Main(string[] args)
         {
             TestFindVowelSubstring();
@@ -28,7 +33,7 @@ namespace StringStuff_C_sharp
             //Console.WriteLine();
             //TestDistanceToNearestVowel();
             //Console.WriteLine();
-            //TestIsValidHexCode();
+            TestIsValidHexCode();
             //Console.WriteLine();
             //TestKaracaEncrypt();
             //Console.WriteLine();
@@ -125,21 +130,12 @@ namespace StringStuff_C_sharp
         static void TestFindVowelSubstring()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Vowel Substrings ~~~~~~~~~~~~~~~~~");
-            string s = "caberqiitefg";
-            int k = 5;
-            Console.WriteLine(FindVowelSubstring(s, k));
-
-            s = "aeiouia";
-            k = 3;
-            Console.WriteLine(FindVowelSubstring(s, k));
-
-            s = "azerdii";
-            k = 5;
-            Console.WriteLine(FindVowelSubstring(s, k));
-
-            s = "qwdftr";
-            k = 2;
-            Console.WriteLine(FindVowelSubstring(s, k));
+            string[] s = new string[] { "caberqiitefg", "aeiouia", "azerdii", "qwdftr" };
+            int[] k = new int[] { 5,3,5,2};
+            for (int i = 0; i < s.Length; i++)
+            {
+                Console.WriteLine(s[i]+" --> "+FindVowelSubstring(s[i], k[i]));
+            }
         }
         #endregion
 
@@ -166,20 +162,13 @@ namespace StringStuff_C_sharp
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ String Cycling ~~~~~~~~~~~~~~~~~");
             string str_1, str_2;
-            Console.WriteLine("============== Test 1 ==============");
-            str_1 = "abc";
-            str_2 = "hello";
-            Console.WriteLine("StringCycler(\"" + str_1 + "\", \"" + str_2 + "\") -> \"" + StringCycler(str_1, str_2) + "\"");
 
-            Console.WriteLine("============== Test 2 ==============");
-            str_1 = "programming";
-            str_2 = "edabit";
-            Console.WriteLine("StringCycler(\"" + str_1 + "\", \"" + str_2 + "\") -> \"" + StringCycler(str_1, str_2) + "\"");
-
-            Console.WriteLine("============== Test 3 ==============");
-            str_1 = "ha";
-            str_2 = "good morning";
-            Console.WriteLine("StringCycler(\"" + str_1 + "\", \"" + str_2 + "\") -> \"" + StringCycler(str_1, str_2) + "\"");
+            string[] words_1 = new string[] { "abc", "programming", "ha" };
+            string[] words_2 = new string[] { "hello", "edabit", "good morning" };
+            for (int i = 0; i < words_1.Length; i++)
+            {
+                Console.WriteLine("StringCycler(\"" + words_1[i] + "\", \"" + words_2[i] + "\") -> \"" + StringCycler(words_1[i], words_2[i]) + "\"");
+            }
         }
         #endregion
 
@@ -191,16 +180,12 @@ namespace StringStuff_C_sharp
         static void TestLongestCommonString()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Longest Common String ~~~~~~~~~~~~~~~~~");
-            string str_1, str_2;
-            Console.WriteLine("============== Test 1 ==============");
-            str_1 = "Secretary";
-            str_2 = "Intersection";
-            Console.WriteLine("LongestCommonString(\"" + str_1 + "\", \"" + str_2 + "\") -> \"" + StringCycler(str_1, str_2) + "\"");
-
-            Console.WriteLine("============== Test 2 ==============");
-            str_1 = "Polymorphism";
-            str_2 = "Abundant";
-            Console.WriteLine("LongestCommonString(\"" + str_1 + "\", \"" + str_2 + "\") -> \"" + StringCycler(str_1, str_2) + "\"");
+            string[] words_1 = new string[] { "Secretary", "Polymorphism" };
+            string[] words_2 = new string[] { "Intersection", "Abundant" };
+            for (int i = 0; i < words_1.Length; i++)
+            {
+                Console.WriteLine("LongestCommonString(\"" + words_1[i] + "\", \"" + words_2[i] + "\") -> \"" + StringCycler(words_1[i], words_2[i]) + "\"");
+            }
         }
         #endregion
 
@@ -235,7 +220,7 @@ namespace StringStuff_C_sharp
             {
                 if (IsTriangleWord(word))
                 {
-                    Console.WriteLine(word+" is a triangle word");
+                    Console.WriteLine(word + " is a triangle word");
                 }
                 else
                 {
@@ -271,9 +256,9 @@ namespace StringStuff_C_sharp
                 return true;
             }
 
-            for (int i = 0; i < str.Length/2; i++)
+            for (int i = 0; i < str.Length / 2; i++)
             {
-                if (str[i] != str[str.Length-i-1])
+                if (str[i] != str[str.Length - i - 1])
                 {
                     return false;
                 }
@@ -340,73 +325,22 @@ namespace StringStuff_C_sharp
         static void TestDistanceToNearestVowel()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Distance to Nearest Vowel ~~~~~~~~~~~~~~~~~");
-            string str;
+            string[] words = new string[] { "" };
             int[] output;
-
-            Console.WriteLine("============== Test 1 ==============");
-            str = "";
-            output = DistanceToNearestVowel(str);
-            Console.WriteLine(str + " --> ");
-            for (int i = 0; i < output.Length; i++)
+            foreach (var item in words)
             {
-                if (i + 1 == output.Length)
+                output = DistanceToNearestVowel(item);
+                Console.WriteLine(item + " --> ");
+                for (int i = 0; i < output.Length; i++)
                 {
-                    Console.Write(output[i]);
-                }
-                else
-                {
-                    Console.Write(output[i] + ", ");
-                }
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("============== Test 2 ==============");
-            str = "";
-            output = DistanceToNearestVowel(str);
-            Console.WriteLine(str + " --> ");
-            for (int i = 0; i < output.Length; i++)
-            {
-                if (i + 1 == output.Length)
-                {
-                    Console.Write(output[i]);
-                }
-                else
-                {
-                    Console.Write(output[i] + ", ");
-                }
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("============== Test 3 ==============");
-            str = "";
-            output = DistanceToNearestVowel(str);
-            Console.WriteLine(str + " --> ");
-            for (int i = 0; i < output.Length; i++)
-            {
-                if (i + 1 == output.Length)
-                {
-                    Console.Write(output[i]);
-                }
-                else
-                {
-                    Console.Write(output[i] + ", ");
-                }
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("============== Test 1 ==============");
-            str = "";
-            output = DistanceToNearestVowel(str);
-            Console.WriteLine(str + " --> ");
-            for (int i = 0; i < output.Length; i++)
-            {
-                if (i + 1 == output.Length)
-                {
-                    Console.Write(output[i]);
-                }
-                else
-                {
-                    Console.Write(output[i] + ", ");
+                    if (i + 1 == output.Length)
+                    {
+                        Console.Write(output[i]);
+                    }
+                    else
+                    {
+                        Console.Write(output[i] + ", ");
+                    }
                 }
             }
         }
@@ -415,23 +349,44 @@ namespace StringStuff_C_sharp
         #region Valid Hex Code
         static bool IsValidHexCode(string str)
         {
-            return false;
+            List<char> validChars = new List<char>() { 'a', 'b', 'c', 'd', 'e', 'f' };
+            for (int i = 0; i < 10; i++)
+            {
+                validChars.Add((char)i);
+                // adds numbers 0-9 to valid list
+            }
+            if (str[0] != '#')
+            {
+                return false;
+            }
+            if (str.Length > 7)
+            {
+                return false;
+            }
+            str = str.ToLower();
+            for (int i = 1; i < str.Length; i++)
+            {
+                foreach (char character in validChars)
+                {
+
+                }
+            }
+            return true;
         }
         static void TestIsValidHexCode()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Valid Hex Code ~~~~~~~~~~~~~~~~~");
-            string str;
-            Console.WriteLine("============== Test 1 ==============");
-            str = "#CD5C5C";
-            Console.WriteLine(str + " ---> " + IsValidHexCode(str));
-
-            Console.WriteLine("============== Test 2 ==============");
-            str = "#CD5C58C";
-            Console.WriteLine(str + " ---> " + IsValidHexCode(str));
-
-            Console.WriteLine("============== Test 3 ==============");
-            str = "CD5C5C";
-            Console.WriteLine(str + " ---> " + IsValidHexCode(str));
+            string[] str = new string[]{ "#CD5C5C",
+                                         "#EAECEE",
+                                         "#eaecee",
+                                         "#CD5C58C",
+                                         "#CD5C5Z",
+                                         "#CD5C&C",
+                                         "CD5C5C"};
+            foreach (var code in str)
+            {
+                Console.WriteLine(code + " --> " + IsValidHexCode(code));
+            }
         }
         #endregion
 
@@ -443,17 +398,11 @@ namespace StringStuff_C_sharp
         static void TestKaracaEncrypt()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Karaca's Encryption Algorithm ~~~~~~~~~~~~~~~~~");
-            string str;
-            Console.WriteLine("============== Test 1 ==============");
-            str = "banana";
-            Console.WriteLine(str + " ---> " + KaracaEncrypt(str));
-            Console.WriteLine("============== Test 2 ==============");
-            str = "karaca";
-            Console.WriteLine(str + " ---> " + KaracaEncrypt(str));
-            Console.WriteLine("============== Test 3 ==============");
-            str = "burak";
-            Console.WriteLine(str + " ---> " + KaracaEncrypt(str));
-
+            string[] words = new string[] { "banana", "karaca", "burak" };
+            foreach (var word in words)
+            {
+                Console.WriteLine(word + " --> " + KaracaEncrypt(word));
+            }
         }
         #endregion
 
@@ -466,39 +415,24 @@ namespace StringStuff_C_sharp
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Character Permutations ~~~~~~~~~~~~~~~~~");
             string str;
+            string[] words = new string[] { "ab", "cd", "not", "yaw" };
             string[] output;
-
-            Console.WriteLine("============== Test 1 ==============");
-            str = "ab";
-            output = Permutations(str);
-            Console.WriteLine("All the permutations of \"" + str.ToUpper() + "\" are: ");
-            for (int i = 0; i < output.Length; i++)
+            foreach (var item in words)
             {
-                if (i + 1 == output.Length)
+                output = Permutations(item);
+                Console.WriteLine("All the permutations of \"" + item.ToUpper() + "\" are: ");
+                for (int i = 0; i < output.Length; i++)
                 {
-                    Console.Write(output[i]);
+                    if (i + 1 == output.Length)
+                    {
+                        Console.Write(output[i]);
+                    }
+                    else
+                    {
+                        Console.Write(output[i] + ", ");
+                    }
                 }
-                else
-                {
-                    Console.Write(output[i] + ", ");
-                }
-            }
-            Console.WriteLine("");
-
-            Console.WriteLine("============== Test 2 ==============");
-            str = "jwy";
-            output = Permutations(str);
-            Console.WriteLine("All the permutations of \"" + str.ToUpper() + "\" are: ");
-            for (int i = 0; i < output.Length; i++)
-            {
-                if (i + 1 == output.Length)
-                {
-                    Console.Write(output[i]);
-                }
-                else
-                {
-                    Console.Write(output[i] + ", ");
-                }
+                Console.WriteLine("");
             }
             Console.WriteLine("");
 
@@ -530,21 +464,11 @@ namespace StringStuff_C_sharp
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Maximum Occurrence ~~~~~~~~~~~~~~~~~");
             string str;
-            Console.WriteLine("============== Test 1 ==============");
-            str = "Computer Science";
-            Console.WriteLine("The most common character(s) in " + str + " is/are " + MaximumOccurance(str));
-
-            Console.WriteLine("============== Test 2 ==============");
-            str = "Edabit";
-            Console.WriteLine("The most common character(s) in " + str + " is/are " + MaximumOccurance(str));
-
-            Console.WriteLine("============== Test 3 ==============");
-            str = "System admin";
-            Console.WriteLine("The most common character(s) in " + str + " is/are " + MaximumOccurance(str));
-
-            Console.WriteLine("============== Test 4 ==============");
-            str = "the quick brown fox jumps over the lazy dog";
-            Console.WriteLine("The most common character(s) in " + str + " is/are " + MaximumOccurance(str));
+            string[] words = new string[] { "Computer Science", "Edabit", "System admin", "the quick brown fox jumps over the lazy dog" };
+            foreach (var item in words)
+            {
+                Console.WriteLine("The most common character(s) in " + item + " is/are " + MaximumOccurance(item));
+            }
         }
         #endregion
 
@@ -556,18 +480,11 @@ namespace StringStuff_C_sharp
         static void TestReverseString()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Recursive Reverse ~~~~~~~~~~~~~~~~~");
-            string str;
-            Console.WriteLine("============== Test 1 ==============");
-            str = "Vertex";
-            Console.WriteLine(str + " -> " + ReverseString(str));
-
-            Console.WriteLine("============== Test 2 ==============");
-            str = "permutations";
-            Console.WriteLine(str + " -> " + ReverseString(str));
-
-            Console.WriteLine("============== Test 3 ==============");
-            str = "function";
-            Console.WriteLine(str + " -> " + ReverseString(str));
+            string[] words = new string[] { "Vertex", "permutations", "function" };
+            foreach (var str in words)
+            {
+                Console.WriteLine(str + " -> " + ReverseString(str));
+            }
         }
         #endregion
     }
