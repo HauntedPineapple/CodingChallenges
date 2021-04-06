@@ -10,7 +10,17 @@ namespace MatrixFunctions_C_sharp
     {
         static void Main(string[] args)
         {
+            int[,] matrix = new int[3, 3] { { 1, 2, 3 },
+                                            { 4, 5, 6 },
+                                            { 7, 8, 9 } };
+            PrintIntMatrix(matrix);
+            Console.WriteLine();
+            matrix = new int[3, 2] { { 1, 2 },
+                                     { 3, 4},
+                                     { 5, 6} };
+            PrintIntMatrix(matrix);          
 
+            Console.ReadLine();
         }
 
         static int[,] MatrixTranspose(int[,] matrix)
@@ -64,6 +74,30 @@ namespace MatrixFunctions_C_sharp
         static int[,] MatrixRotate(int[,] matrix, int num)
         {
             return null;
+        }
+
+        static void PrintIntMatrix(int[,] matrix)
+        {
+            int count = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                Console.Write("[");
+                for (int k = 0; k < matrix.GetLength(1); k++)
+                {
+                    count++;
+                    if (count < matrix.GetLength(1))
+                    {
+                        Console.Write(matrix[i,k]+", ");
+                    }
+                    else
+                    {
+                        Console.Write(matrix[i,k]);
+                    }  
+                }
+                count = 0;
+                Console.Write("]");
+                Console.WriteLine();
+            }
         }
     }
 }
