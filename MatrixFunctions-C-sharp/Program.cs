@@ -13,7 +13,14 @@ namespace MatrixFunctions_C_sharp
 
         }
 
-        static int[,] matrixMultiply(int[,] matrixA, int[,] matrixB)
+        static int[,] MatrixTranspose(int[,] matrix)
+        {
+            int[,] result = new int[matrix.GetLength(1), matrix.GetLength(0)];
+
+            return result;
+        }
+
+        static int[,] MatrixMultiply(int[,] matrixA, int[,] matrixB)
         {
             /// A matrix of MxN dimensions can only be multiplied
             /// by another matrix of NxP dimensions
@@ -36,31 +43,25 @@ namespace MatrixFunctions_C_sharp
             return null;
         }
 
-        static int[,] matrixDivide(int[,] matrixA, int[,] matrixB)
+        static int[,] MatrixDivide(int[,] matrixA, int[,] matrixB)
         {
             return null;
         }
 
         /// <param name="matrix">MUST be a square matrix</param>
-        static int matrixDeterminant(int[,] matrix)
+        static int MatrixDeterminant(int[,] matrix)
         {
             return 0;
         }
 
         /// <summary>
-        /// Returns a rotated matrix
+        /// Rotates a given matrix "num" times
         /// </summary>
         /// <param name="matrix">Square matrix to rotate</param>
         /// <param name="num">Number of times to rotate the matrix.
         /// If this value is positive, rotate clockwise. If it is
         /// negative, rotate counterclockwise</param>
-        /// <returns></returns>
-        static int[,] matrixRotate(int[,] matrix, int num)
-        {
-            return null;
-        }
-
-        static int[,] matrixTranspose(int[,] matrix)
+        static int[,] MatrixRotate(int[,] matrix, int num)
         {
             return null;
         }
