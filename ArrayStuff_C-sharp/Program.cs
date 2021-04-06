@@ -104,6 +104,11 @@ namespace ArrayStuff_C_sharp
         static int[] MultipleArray(int num, int length)
         {
             int[] output = new int[length];
+            output[0] = num;
+            for(int i = 1; i < length; i++)
+            {
+                output[i] = num + output[i - 1];
+            }
             return output;
         }
         static void TestMultipleArray()
