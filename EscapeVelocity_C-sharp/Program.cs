@@ -21,8 +21,8 @@ namespace EscapeVelocity_C_sharp
         {
             string result = "\tThe escape velocity in m/s is: ";
             // mass and radius are in kg and m
-            double mass = 5.976e24; // Earth's mass
-            double radius = 637800; // Earth's equatorial radius
+            double mass = 5.972e24; // Earth's mass
+            double radius = 6378; // Earth's equatorial radius
 
             switch (planet.ToLower())
             { //multiplies by the planet's value relative to Earth's
@@ -61,8 +61,11 @@ namespace EscapeVelocity_C_sharp
             }
 
             double escVel = 2 * G * mass;
+            Console.WriteLine(escVel);
             escVel = escVel / radius;
+            Console.WriteLine(escVel);
             escVel = Math.Sqrt(escVel);
+            Console.WriteLine(escVel);
             result += decimal.Round((decimal)escVel, 2);
 
             result += "\n\tThe escape velocity in km/h is : ";
