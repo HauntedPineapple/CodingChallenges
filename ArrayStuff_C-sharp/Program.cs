@@ -68,6 +68,14 @@ namespace ArrayStuff_C_sharp
         static int[,] MultiplicationTable(int size)
         {
             int[,] output = new int[size, size];
+            for(int i=0; i< size; i++)
+            {
+                output[i, 0] = i+1;
+                for(int k=1; k<size; k++)
+                {
+                    output[i, k] = i+1 + output[i, k - 1];
+                }
+            }
             return output;
         }
         static void TestMultiplicationTable()
