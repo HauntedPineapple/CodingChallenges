@@ -31,10 +31,10 @@ namespace MathStuff_C_sharp
             //TestIntegral();
             //Console.WriteLine();
 
-            //TestMaxDistance();
-            //Console.WriteLine();
+            TestMaxDistance();
+            Console.WriteLine();
 
-            TestClockAngle();
+            //TestClockAngle();
 
             Console.ReadLine();
         }
@@ -291,7 +291,7 @@ namespace MathStuff_C_sharp
         /// <param name="passengers">Amount of passengers not including the driver</param>
         /// <param name="airCon">True if the air conditioner is on</param>
         /// <returns>Maximum distance the car can travel</returns>
-        static float MaxDistance(float fuel, float fuelUsage, int passengers, bool airCon)
+        static double MaxDistance(double fuel, double fuelUsage, int passengers, bool airCon)
         {
             /* "Basic" fuel consumption is the amount that happens with only the driver inside
              * Each additional passenger increases fuel consumption by 5%
@@ -300,38 +300,50 @@ namespace MathStuff_C_sharp
              * passengers are always greater or equal to 0
              * round answer to the nearest tenth
              */
-
-            return 0;
+            double total = 0;
+            for (int i = 0; i < passengers; i++)
+            {
+                fuelUsage += fuelUsage * 0.05;
+                Console.WriteLine(fuelUsage);
+            }
+            if (airCon)
+            {
+                fuelUsage += fuelUsage * 0.1;
+                Console.WriteLine(fuelUsage);
+            }
+            total = fuel / fuelUsage;
+            total *= 100;
+            return Math.Round(total, 1); ;
         }
         static void TestMaxDistance()
         {
             Console.WriteLine("============ Maximum Travel Distance ============");
-            float fuel, fuelUsage;
+            double fuel, fuelUsage;
             int passengers;
             bool airCon;
 
             Console.WriteLine("============ Test 1 ============");
-            fuel = 70.0f;
-            fuelUsage = 7.0f;
+            fuel = 70.0;
+            fuelUsage = 7.0;
             passengers = 0;
             airCon = false;
-            Console.WriteLine("Fuel: " + fuel + " Fuel Usage" + fuelUsage + "liters/100km Air conditioner on? " + airCon.ToString());
+            Console.WriteLine("Fuel: " + fuel + " Fuel Usage: " + fuelUsage + "liters/100km Air conditioner on? " + airCon.ToString());
             Console.WriteLine("Maximum distance: " + MaxDistance(fuel, fuelUsage, passengers, airCon) + "km");
 
             Console.WriteLine("============ Test 2 ============");
-            fuel = 36.1f;
-            fuelUsage = 8.6f;
+            fuel = 36.1;
+            fuelUsage = 8.6;
             passengers = 3;
             airCon = true;
-            Console.WriteLine("Fuel: " + fuel + " Fuel Usage" + fuelUsage + "liters/100km Air conditioner on? " + airCon.ToString());
+            Console.WriteLine("Fuel: " + fuel + " Fuel Usage: " + fuelUsage + "liters/100km Air conditioner on? " + airCon.ToString());
             Console.WriteLine("Maximum distance: " + MaxDistance(fuel, fuelUsage, passengers, airCon) + "km");
 
             Console.WriteLine("============ Test 3 ============");
-            fuel = 55.5f;
-            fuelUsage = 5.5f;
+            fuel = 55.5;
+            fuelUsage = 5.5;
             passengers = 5;
             airCon = false;
-            Console.WriteLine("Fuel: " + fuel + " Fuel Usage" + fuelUsage + "liters/100km Air conditioner on? " + airCon.ToString());
+            Console.WriteLine("Fuel: " + fuel + " Fuel Usage: " + fuelUsage + "liters/100km Air conditioner on? " + airCon.ToString());
             Console.WriteLine("Maximum distance: " + MaxDistance(fuel, fuelUsage, passengers, airCon) + "km");
         }
         #endregion
