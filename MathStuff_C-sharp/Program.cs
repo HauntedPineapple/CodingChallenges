@@ -34,7 +34,7 @@ namespace MathStuff_C_sharp
             TestMaxDistance();
             Console.WriteLine();
 
-            //TestClockAngle();
+            TestClockAngle();
 
             Console.ReadLine();
         }
@@ -355,18 +355,34 @@ namespace MathStuff_C_sharp
         /// </summary>
         static int findAngle(int hour, int minute)
         {
-            return 0;
+            double angle = 0;
+            // Angle between the hand and the position it is in when the clock reads 12:00
+            double hrAngle, minAngle;
+            /// Hour hand rate:
+            ///     360° in 12 hours
+            ///     360/12 = 30° per hour
+            /// Minute hand rate:
+            ///     360° in 1 hour
+            ///     360/60 = 6° per minute    
+
+            hrAngle = hour * 30;
+            minAngle = minute * 6;
+
+            angle = Math.Abs(hrAngle - minAngle);
+
+            if (angle > 180)
+            {
+                angle = 360 - angle;
+            }
+
+            return (int)angle;
         }
-        /// Remember:
-        /// π rad = 180°
-        /// 1° = π/180°
-        /// radians = degrees × π / 180°
-        /// degrees = radians × 180° / π
+
         static void TestClockAngle()
         {
             Console.WriteLine("============ Clock Angle Problem ============");
-            int[] h = new int[] { 5, 9, 12 };
-            int[] m = new int[] { 30, 0, 0 };
+            int[] h = new int[] { 5, 9, 12, 3, 7 };
+            int[] m = new int[] { 30, 0, 0, 55, 27 };
             for (int i = 0; i < h.Length; i++)
             {
                 DateTime dt = new DateTime(2021, 4, 8, h[i], m[i], 0);
