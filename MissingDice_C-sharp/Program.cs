@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Missing_DIce
+namespace MissingDice_C_Sharp
 {
     class Program
     {
@@ -95,6 +98,8 @@ namespace Missing_DIce
                 Console.Write(number + " ");
             }
             Console.WriteLine();
+
+            Console.ReadLine();
         }
     }
 }
