@@ -10,6 +10,7 @@ namespace NumberFunctions_C_sharp
     {
         static void Main(string[] args)
         {
+            #region Prime
             Console.WriteLine("----- Is It Prime? -----");
             Console.WriteLine("The first 50 prime numbers are: ");
             int count = 0;
@@ -24,9 +25,11 @@ namespace NumberFunctions_C_sharp
                 number++;
             }
             Console.WriteLine();
+#endregion
 
+            #region Interprime
             Console.WriteLine("----- Interprime Numbers -----");
-            int[] testNums = new int[3] { 6, 9, 8 };
+            int[] testNums = new int[3] { 6, 9, 13 };
             foreach (int num in testNums)
             {
                 int[] output = interprime(num);
@@ -45,12 +48,35 @@ namespace NumberFunctions_C_sharp
                 Console.Write("]");
                 Console.WriteLine();
             }
+            #endregion
 
+            #region Exapnded Form
+            Console.WriteLine("----- Expanded Numbers -----");
+            #endregion
+
+            #region Consecutive Numbers
+            Console.WriteLine("----- Consecutive Numbers -----");
+            #endregion
+
+            #region Moran Numbers
+            Console.WriteLine("----- Moran Numbers -----");
+            #endregion
+
+            #region Fibonacci
             Console.WriteLine("----- Nth Fibonacci -----");
             for (int i = 10; i < 60; i += 10)
             {
                 Console.WriteLine(i + "th Fibonacci: " + nthFibonacci(i));
             }
+            #endregion
+
+            #region Perfect Numbers
+            Console.WriteLine("----- Perfect Numbers -----");
+            #endregion
+
+            #region Palindromic Numbers
+            Console.WriteLine("----- Palindromic Numbers -----");
+            #endregion
 
             Console.WriteLine();
             Console.ReadLine();
@@ -76,7 +102,7 @@ namespace NumberFunctions_C_sharp
         {
             if (isPrime(num))
             { // a prime number cannot be interprime
-                return new int[0] { };
+                return new int[0];
             }
             int leftPrime = num - 1;
             int rightPrime = num + 1;
