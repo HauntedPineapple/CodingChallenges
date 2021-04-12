@@ -14,15 +14,6 @@ Examples:
 	interprime(13) ➞ []
 Notes: Interprimes cannot be prime themselves (otherwise the primes would not have been consecutive).
 ========================================================
-Binary Search
-Task: Create a function that finds a target number in a list of prime numbers. Implement a binary search algorithm in your function. The target number will be from 2 through 97. If the target is prime then return "yes" else return "no".
-
-Examples: 
-	int[] primes = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 }
-		IsPrime(primes, 3) ➞ "yes"
-		IsPrime(primes, 4) ➞ "no"
-		IsPrime(primes, 67) ➞ "yes"
-========================================================
 Expanded Form of a Number
 Task: Create a function that expands a number into a string as shown below:
 25 ➞ "20 + 5"
