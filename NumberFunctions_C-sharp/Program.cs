@@ -14,6 +14,32 @@ namespace NumberFunctions_C_sharp
             Console.ReadLine();
         }
 
+        static bool isPrime(int num)
+        {
+            if (num <= 1)
+            {
+                return false;
+            }
+            for (int i = 2; i < num-1; i++)
+            {
+                if (num % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        static int[] interprimeNumbers(int num)
+        {
+            if (isPrime(num))
+            { // a prime number cannot be interprime
+                return new int[0];
+            }
+
+            return new int[0];
+        }
+
         static string nthFibonacci(int n)
         {
             if (n < 2)
@@ -30,8 +56,9 @@ namespace NumberFunctions_C_sharp
                 twoBack = oneBack;
                 oneBack = current;
             }
-
             return current.ToString();
         }
+
+
     }
 }
