@@ -11,7 +11,7 @@ Task: Create a function that takes a number n as input. If n is an interprime nu
 Examples:
 	interprime(6) ➞ [5, 7]
 	interprime(9) ➞ [7, 11]
-	interprime(8) ➞ []
+	interprime(13) ➞ []
 Notes: Interprimes cannot be prime themselves (otherwise the primes would not have been consecutive).
 ========================================================
 Binary Search
