@@ -13,7 +13,6 @@ namespace ArrayStuff_C_sharp
             TestDiamondArray();
             Console.WriteLine();
             TestMultiplicationTable();
-            Console.WriteLine();
             TestMultipleArray();
             Console.WriteLine();
             TestArraySummation();
@@ -31,6 +30,24 @@ namespace ArrayStuff_C_sharp
         static List<int[]> DiamondArray(int size)
         {
             List<int[]> output = new List<int[]>();
+            for (int i = 1; i <= size; i++)
+            {
+                int[] temp = new int[i];
+                for (int j = 0; j < i; j++)
+                {
+                    temp[j] = i;
+                }
+                output.Add(temp);
+            }
+            for (int i = size - 1; i > 0; i--)
+            {
+                int[] temp = new int[i];
+                for (int j = 0; j < i; j++)
+                {
+                    temp[j] = i;
+                }
+                output.Add(temp);
+            }
             return output;
         }
         static void TestDiamondArray()
@@ -68,12 +85,12 @@ namespace ArrayStuff_C_sharp
         static int[,] MultiplicationTable(int size)
         {
             int[,] output = new int[size, size];
-            for(int i=0; i< size; i++)
+            for (int i = 0; i < size; i++)
             {
-                output[i, 0] = i+1;
-                for(int k=1; k<size; k++)
+                output[i, 0] = i + 1;
+                for (int k = 1; k < size; k++)
                 {
-                    output[i, k] = i+1 + output[i, k - 1];
+                    output[i, k] = i + 1 + output[i, k - 1];
                 }
             }
             return output;
@@ -113,7 +130,7 @@ namespace ArrayStuff_C_sharp
         {
             int[] output = new int[length];
             output[0] = num;
-            for(int i = 1; i < length; i++)
+            for (int i = 1; i < length; i++)
             {
                 output[i] = num + output[i - 1];
             }
@@ -274,7 +291,7 @@ namespace ArrayStuff_C_sharp
                 Console.Write("] --> ");
                 Console.Write("[");
                 List<int> output = MiniPeaks(array);
-                for (int i = 0;i < output.Count; i++)
+                for (int i = 0; i < output.Count; i++)
                 {
                     count++;
                     if (count < output.Count)
@@ -294,12 +311,26 @@ namespace ArrayStuff_C_sharp
         #region Left Rotation
         static int[] RotateLeft(int[] arr, int r)
         {
-            return null;
+            for (int i = 0; i < r; i++)
+            {
+                int temp = arr[0];
+                for (int a = 0; a < arr.Length - 1; a++)
+                {
+                    arr[a] = arr[a + 1];
+                }
+                arr[arr.Length - 1] = temp;
+            }
+            return arr;
         }
         static void TestRotateLeft()
         {
             Console.WriteLine("=============== Left Rotation ===============");
-
+            int[] arr = new int[5] { 1, 2, 3, 4, 5 };
+            int[] output = RotateLeft(arr, 4);
+            for (int i = 0; i < output.Length; i++)
+            {
+                Console.Write(output[i] + " ");
+            }
         }
         #endregion
     }
