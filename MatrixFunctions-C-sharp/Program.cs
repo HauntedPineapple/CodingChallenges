@@ -166,11 +166,16 @@ namespace MatrixFunctions_C_sharp
             {
                 throw new ArgumentException();
             }
-
+            if (matrix.GetLength(0) == 2)
+            {
+                return matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
+            }
             
+
 
             return 0;
         }
+
 
         static double[,] InverseMatrix(int[,] matrix)
         {
