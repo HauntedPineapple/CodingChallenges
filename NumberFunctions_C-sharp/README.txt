@@ -25,16 +25,6 @@ Examples:
 	expandedForm(1037903) ➞ "1000000 + 30000 + 7000 + 900 + 3"
 	expandedForm(802539) ➞ "800000 + 2000 + 500 + 30 + 9" 
 ========================================================
-Consecutive Numbers
-Task: Create a function that determines whether elements in an array can be re-arranged to form a consecutive list of numbers where each number appears exactly once.
-
-Examples:
-	ConsecNum([5, 1, 4, 3, 2]) ➞ true
-	// Can be re-arranged to form [1, 2, 3, 4, 5]
-	ConsecNum ([5, 1, 4, 3, 2, 8]) ➞ false
-	ConsecNum ([5, 6, 7, 8, 9, 9]) ➞ false
-	// 9 appears twice
-========================================================
 Moran Numbers
 A Harshad number is a number which is divisible by the sum of its digits. For example, 132 is divisible by 6 (1+3+2).
 A subset of the Harshad numbers are the Moran numbers. Moran numbers yield a prime when divided by the sum of their digits. For example, 133 divided by 7 (1+3+3) yields 19, a prime.

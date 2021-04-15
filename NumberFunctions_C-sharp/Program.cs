@@ -61,10 +61,6 @@ namespace NumberFunctions_C_sharp
             }
             #endregion
 
-            #region Consecutive Numbers
-            //Console.WriteLine("----- Consecutive Numbers -----");
-            #endregion
-
             #region Moran Numbers
             Console.WriteLine("----- Moran Numbers -----");
             input = new int[3] { 132, 133, 134 };
@@ -187,11 +183,6 @@ namespace NumberFunctions_C_sharp
             }
 
             return result;
-        }
-
-        static bool consecutiveNumbers(int[] numbers)
-        {
-            return false;
         }
 
         /// <returns>"M" if the number is a Moran number,
