@@ -54,15 +54,15 @@ namespace NumberFunctions_C_sharp
 
             #region Exapnded Form
             Console.WriteLine("----- Expanded Numbers -----");
-            input = new int[3] { 25, 70701, 685 };
+            input = new int[5] { 25, 70701, 685, 1037903, 802539 };
             foreach (int num in input)
             {
-                Console.WriteLine(num + " --> "+expandedForm(num));
+                Console.WriteLine(num + " --> " + expandedForm(num));
             }
             #endregion
 
             #region Consecutive Numbers
-            Console.WriteLine("----- Consecutive Numbers -----");
+            //Console.WriteLine("----- Consecutive Numbers -----");
             #endregion
 
             #region Moran Numbers
@@ -72,7 +72,7 @@ namespace NumberFunctions_C_sharp
             {
                 if (moranOrHarshad(num) == "Neither")
                 {
-                    Console.WriteLine(num + " neither a Moran nor a Harshad number");
+                    Console.WriteLine(num + " is neither a Moran nor a Harshad number");
                 }
                 if (moranOrHarshad(num) == "M")
                 {
@@ -166,7 +166,27 @@ namespace NumberFunctions_C_sharp
 
         static string expandedForm(int number)
         {
-            return "";
+            string result = "";
+            string num = number.ToString();
+            int numZeros = num.Length - 1;
+            for (int i = 0; i < num.Length; i++)
+            {
+                if (num[i] != '0')
+                {
+                    result += num[i];
+                    if (i < num.Length - 1) //until we get to the 1s digit
+                    {
+                        for (int j= 0; j < numZeros; j++)
+                        {
+                            result += "0";
+                        }
+                        result += " + ";
+                    }
+                }
+                numZeros--;
+            }
+
+            return result;
         }
 
         static bool consecutiveNumbers(int[] numbers)
