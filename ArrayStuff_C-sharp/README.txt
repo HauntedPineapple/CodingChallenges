@@ -66,3 +66,13 @@ Task: Given an array a of integers and a number r, perform r left rotations on t
 Examples:
 	Given: a = {1, 2, 3, 4, 5}, n = 4
 	Output: {5, 1, 2, 3, 4}
+========================================================
+Consecutive Numbers
+Task: Create a function that determines whether elements in an array can be re-arranged to form a consecutive list of numbers where each number appears exactly once.
+
+Examples:
+	ConsecNum([5, 1, 4, 3, 2]) ➞ true
+	// Can be re-arranged to form [1, 2, 3, 4, 5]
+	ConsecNum ([5, 1, 4, 3, 2, 8]) ➞ false
+	ConsecNum ([5, 6, 7, 8, 9, 9]) ➞ false
+	// 9 appears twice
