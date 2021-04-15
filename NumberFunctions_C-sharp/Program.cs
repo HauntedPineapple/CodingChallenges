@@ -31,7 +31,7 @@ namespace NumberFunctions_C_sharp
 
             #region Interprime
             Console.WriteLine("----- Interprime Numbers -----");
-            input = new int[3] { 6, 9, 13 };
+            input = new int[4] { 6, 9, 13, 44 };
             foreach (int num in input)
             {
                 int[] output = interprime(num);
@@ -147,15 +147,23 @@ namespace NumberFunctions_C_sharp
             { // a prime number cannot be interprime
                 return new int[0];
             }
-            int leftPrime = num - 1;
-            int rightPrime = num + 1;
+            int leftPrime = num;
+            int leftCount = 0;
+            int rightPrime = num;
+            int rightCount = 0;
             while (!isPrime(leftPrime))
             {
-                leftPrime--;
+                leftCount++;
+                leftPrime--;                
             }
             while (!isPrime(rightPrime))
             {
+                rightCount++;
                 rightPrime++;
+            }
+            if (rightCount != leftCount)
+            {
+                return new int[0];
             }
             return new int[2] { leftPrime, rightPrime };
         }
