@@ -107,7 +107,7 @@ namespace NumberFunctions_C_sharp
 
             #region Palindromic Numbers
             Console.WriteLine("----- Palindromic Numbers -----");
-            input = new int[3] { 123, 36863, 22123 };
+            input = new int[5] { 123, 36863, 73167, 22996622, 27872 };
             foreach (int num in input)
             {
                 if (isPalindrome(num))
@@ -154,7 +154,7 @@ namespace NumberFunctions_C_sharp
             while (!isPrime(leftPrime))
             {
                 leftCount++;
-                leftPrime--;                
+                leftPrime--;
             }
             while (!isPrime(rightPrime))
             {
@@ -180,7 +180,7 @@ namespace NumberFunctions_C_sharp
                     result += num[i];
                     if (i < num.Length - 1) //until we get to the 1s digit
                     {
-                        for (int j= 0; j < numZeros; j++)
+                        for (int j = 0; j < numZeros; j++)
                         {
                             result += "0";
                         }
@@ -198,6 +198,22 @@ namespace NumberFunctions_C_sharp
         /// </returns>
         static string moranOrHarshad(int num)
         {
+            int sum = 0;
+            int number = num;
+            while (num > 0)
+            {
+                sum += num % 10;
+                num /= 10;
+            }
+
+            if (number % sum == 0)
+            {
+                if (isPrime(number / sum))
+                {
+                    return "M";
+                }
+                return "H";
+            }
             return "Neither";
         }
 
@@ -231,7 +247,17 @@ namespace NumberFunctions_C_sharp
 
         static bool isPalindrome(int num)
         {
-            return false;
+            string number = num.ToString();
+            int j = number.Length - 1;
+            for (int i = 0; i < number.Length / 2; i++)
+            {
+                if (number[i] != number[j])
+                {
+                    return false;
+                }
+                j--;
+            }
+            return true;
         }
     }
 }
