@@ -16,46 +16,49 @@ namespace StringStuff_C_sharp
 
         static void Main(string[] args)
         {
-            //TestFindVowelSubstring();
-            //Console.WriteLine();
+            TestFindVowelSubstring();
+            Console.WriteLine();
 
-            //TestStringCycler();
-            //Console.WriteLine();
+            TestStringCycler();
+            Console.WriteLine();
 
-            //TestLongestCommonString();
-            //Console.WriteLine();
+            TestLongestCommonString();
+            Console.WriteLine();
 
-            //TestMissingAlphabet();
-            //Console.WriteLine();
+            TestMissingAlphabet();
+            Console.WriteLine();
 
-            //TestIsTriangleWord();
-            //Console.WriteLine();
+            TestIsTriangleWord();
+            Console.WriteLine();
 
-            //TestCountUnique();
-            //Console.WriteLine();
+            TestCountUnique();
+            Console.WriteLine();
 
-            //TestIsPalindrome();
-            //Console.WriteLine();
+            TestIsPalindrome();
+            Console.WriteLine();
 
-            //TestPalindromeBuilder();
-            //Console.WriteLine();
+            TestPalindromicSubstring();
+            Console.WriteLine();
 
-            //TestDistanceToNearestVowel();
-            //Console.WriteLine();
+            TestMinimumPalindrome();
+            Console.WriteLine();
 
-            //TestIsValidHexCode();
-            //Console.WriteLine();
+            TestDistanceToNearestVowel();
+            Console.WriteLine();
 
-            //TestKaracaEncrypt();
-            //Console.WriteLine();
+            TestIsValidHexCode();
+            Console.WriteLine();
 
-            //TestPermutations();
-            //Console.WriteLine();
+            TestKaracaEncrypt();
+            Console.WriteLine();
 
-            //TestMaximumOccurance();
-            //Console.WriteLine();
+            TestPermutations();
+            Console.WriteLine();
 
-            //TestReverseString();
+            TestMaximumOccurance();
+            Console.WriteLine();
+
+            TestReverseString();
 
             Console.ReadLine();
         }
@@ -175,8 +178,6 @@ namespace StringStuff_C_sharp
         static void TestStringCycler()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ String Cycling ~~~~~~~~~~~~~~~~~");
-            string str_1, str_2;
-
             string[] words_1 = new string[] { "abc", "programming", "ha" };
             string[] words_2 = new string[] { "hello", "edabit", "good morning" };
             for (int i = 0; i < words_1.Length; i++)
@@ -189,16 +190,17 @@ namespace StringStuff_C_sharp
         #region Longest Common String
         static string LongestCommonString(string str_1, string str_2)
         {
-            return "";
+            string result = "";
+            return result;
         }
         static void TestLongestCommonString()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Longest Common String ~~~~~~~~~~~~~~~~~");
-            string[] words_1 = new string[] { "Secretary", "Polymorphism" };
-            string[] words_2 = new string[] { "Intersection", "Abundant" };
+            string[] words_1 = new string[] { "Secretary", "Polymorphism", "Function", "Transformation" };
+            string[] words_2 = new string[] { "Intersection", "Abundant", "Hesitate", "Information" };
             for (int i = 0; i < words_1.Length; i++)
             {
-                Console.WriteLine("LongestCommonString(\"" + words_1[i] + "\", \"" + words_2[i] + "\") -> \"" + StringCycler(words_1[i], words_2[i]) + "\"");
+                Console.WriteLine("LongestCommonString(\"" + words_1[i] + "\", \"" + words_2[i] + "\") -> \"" + LongestCommonString(words_1[i], words_2[i]) + "\"");
             }
         }
         #endregion
@@ -289,19 +291,19 @@ namespace StringStuff_C_sharp
                     numWords++;
                     if (IsTriangleWord(word))
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
                         numTriangleWords++;
-                        Console.WriteLine(word + " IS a triangle word");
-                        Console.ForegroundColor = ConsoleColor.Gray;
+                        //Console.ForegroundColor = ConsoleColor.Green;
+                        //Console.WriteLine(word + " IS a triangle word");
+                        //Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(word + " is NOT a triangle word");
-                        Console.ForegroundColor = ConsoleColor.Gray;
+                        //Console.ForegroundColor = ConsoleColor.Red;
+                        //Console.WriteLine(word + " is NOT a triangle word");
+                        //Console.ForegroundColor = ConsoleColor.Gray;
                     }
                 }
-                Console.WriteLine("There are " + numTriangleWords + " triangle words out of " + numWords + " in " + filename);
+                Console.WriteLine("There are " + numTriangleWords + " triangle words out of " + numWords + " in p042_words.txt");
                 input.Close();
             }
             catch (Exception e)
@@ -310,20 +312,20 @@ namespace StringStuff_C_sharp
                 return;
             }
 
-            //string[] words = new string[] { "SKY", "ARISE", "DENY", "RESPONSE",
-            //                              "OBTAIN", "SOMETHING", "WHOSE", "ORGANIZATION",
-            //                              "CONFLICT","EARLY","JOB","CURRICULUM","LABOUR"};
-            //foreach (string word in words)
-            //{
-            //    if (IsTriangleWord(word))
-            //    {
-            //        Console.WriteLine(word + " IS a triangle word");
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine(word + " is NOT a triangle word");
-            //    }
-            //}
+            string[] words = new string[] { "ABILITY", "BECOME", "CHECK", "CHILD",
+                                          "GROWING", "ISSUE", "NECESSARILY", "OURSELVES",
+                                          "PERFORM","PROPERTY","QUALITY","REDUCTION","SOUTHERN"};
+            foreach (string word in words)
+            {
+                if (IsTriangleWord(word))
+                {
+                    Console.WriteLine(word + " IS a triangle word");
+                }
+                else
+                {
+                    Console.WriteLine(word + " is NOT a triangle word");
+                }
+            }
         }
         #endregion
 
@@ -416,7 +418,7 @@ namespace StringStuff_C_sharp
         #region Distance to Nearest Vowel
         static int[] DistanceToNearestVowel(string str)
         {
-            return null;
+            return new int[] { };
         }
         static void TestDistanceToNearestVowel()
         {
@@ -542,13 +544,12 @@ namespace StringStuff_C_sharp
         #region Character Permutations
         static string[] Permutations(string str)
         {
-            return null;
+            return new string[] { };
         }
         static void TestPermutations()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Character Permutations ~~~~~~~~~~~~~~~~~");
-            string str;
-            string[] words = new string[] { "ab", "cd", "not", "yaw" };
+            string[] words = new string[] { "ab", "cd", "not", "yaw", "liup" };
             string[] output;
             foreach (var item in words)
             {
@@ -565,26 +566,7 @@ namespace StringStuff_C_sharp
                         Console.Write(output[i] + ", ");
                     }
                 }
-                Console.WriteLine("");
             }
-            Console.WriteLine("");
-
-            Console.WriteLine("============== Test 3 ==============");
-            str = "luip";
-            output = Permutations(str);
-            Console.WriteLine("All the permutations of \"" + str.ToUpper() + "\" are: ");
-            for (int i = 0; i < output.Length; i++)
-            {
-                if (i + 1 == output.Length)
-                {
-                    Console.Write(output[i]);
-                }
-                else
-                {
-                    Console.Write(output[i] + ", ");
-                }
-            }
-            Console.WriteLine("");
         }
         #endregion
 
@@ -596,7 +578,6 @@ namespace StringStuff_C_sharp
         static void TestMaximumOccurance()
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~ Maximum Occurrence ~~~~~~~~~~~~~~~~~");
-            string str;
             string[] words = new string[] { "Computer Science", "Edabit", "System admin", "the quick brown fox jumps over the lazy dog" };
             foreach (var item in words)
             {
