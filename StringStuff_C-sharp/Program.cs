@@ -329,10 +329,21 @@ namespace StringStuff_C_sharp
         }
         #endregion
 
-        #region Unique Characters
+        #region Unique Characters - Done
         static int CountUnique(string str_1, string str_2)
         {
-            return 0;
+            string str = (str_1 + str_2).ToLower();
+            List<char> characters = new List<char>();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (!characters.Contains(str[i]))
+                {
+                    characters.Add(str[i]);
+                }
+            }
+
+            return characters.Count;
         }
         static void TestCountUnique()
         {
@@ -445,7 +456,7 @@ namespace StringStuff_C_sharp
         }
         #endregion
 
-        #region Valid Hex Code
+        #region Valid Hex Code - Done
         static bool IsValidHexCode(string str)
         {
             List<char> validChars = new List<char>() { 'A', 'B', 'C', 'D', 'E', 'F',
