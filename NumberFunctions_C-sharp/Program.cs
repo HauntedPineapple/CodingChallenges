@@ -83,7 +83,7 @@ namespace NumberFunctions_C_sharp
 
             #region Fibonacci
             Console.WriteLine("----- Nth Fibonacci -----");
-            for (int i = 10; i < 60; i += 10)
+            for (int i = 5; i <= 50; i+=5)
             {
                 Console.WriteLine(i + "th Fibonacci: " + nthFibonacci(i));
             }
@@ -217,26 +217,19 @@ namespace NumberFunctions_C_sharp
             return "Neither";
         }
 
+        /// <summary>
+        /// Works up to the 92nd Fibonacci
+        /// </summary>
         static string nthFibonacci(int n)
         {
             if (n < 2)
             {
                 return n.ToString();
             }
-            //int twoBack = 0;
-            //int oneBack = 1;
-            //int current = 0;
-
-            //for (int i = 1; i < n; i++)
-            //{
-            //    current = twoBack + oneBack;
-            //    twoBack = oneBack;
-            //    oneBack = current;
-            //}
 
             // Fn = {[(√5 + 1)/2] ^ n} / √5 
             double temp = (1 + Math.Sqrt(5)) / 2;
-            int fibNum = (int)Math.Round(Math.Pow(temp, n) / Math.Sqrt(5));
+            long fibNum = (long)Math.Round(Math.Pow(temp, n) / Math.Sqrt(5));
             return fibNum.ToString();
         }
 
