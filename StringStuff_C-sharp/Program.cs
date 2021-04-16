@@ -418,6 +418,7 @@ namespace StringStuff_C_sharp
         #region Distance to Nearest Vowel
         static int[] DistanceToNearestVowel(string str)
         {
+
             return new int[] { };
         }
         static void TestDistanceToNearestVowel()
@@ -447,12 +448,10 @@ namespace StringStuff_C_sharp
         #region Valid Hex Code
         static bool IsValidHexCode(string str)
         {
-            List<char> validChars = new List<char>() { 'a', 'b', 'c', 'd', 'e', 'f' };
-            for (int i = 0; i < 10; i++)
-            {
-                validChars.Add((char)i);
-                // adds numbers 0-9 to valid list
-            }
+            List<char> validChars = new List<char>() { 'A', 'B', 'C', 'D', 'E', 'F',
+                                                       'a', 'b', 'c', 'd', 'e', 'f',
+                                                       '0', '1', '2', '3', '4', '5',
+                                                       '6', '7', '8', '9' };
             if (str[0] != '#')
             {
                 return false;
@@ -461,7 +460,6 @@ namespace StringStuff_C_sharp
             {
                 return false;
             }
-            str = str.ToLower();
             int count = 0;
             for (int i = 1; i < str.Length; i++)
             {
@@ -470,13 +468,13 @@ namespace StringStuff_C_sharp
                     if (str[i] == character)
                     {
                         count++;
+                        continue;
                     }
                 }
-                if (count != str.Length)
-                {
-                    return false;
-                }
-                count = 0;
+            }
+            if (count != 6)
+            {
+                return false;
             }
             return true;
         }
