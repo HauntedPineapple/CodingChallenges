@@ -190,6 +190,8 @@ namespace StringStuff_C_sharp
         #region Longest Common String
         static string LongestCommonString(string str_1, string str_2)
         {
+            str_1 = str_1.ToLower();
+            str_2 = str_2.ToLower();
             string result = "";
             return result;
         }
@@ -208,6 +210,7 @@ namespace StringStuff_C_sharp
         #region Missing Alphabets
         static string MissingAlphabet(string str)
         {
+            str = str.ToLower();
             return "";
         }
         static void TestMissingAlphabet()
@@ -396,6 +399,7 @@ namespace StringStuff_C_sharp
         #region Palindromic Substring
         static string PalindromicSubstring(string str)
         {
+            str = str.ToLower();
             return "";
         }
         static void TestPalindromicSubstring()
@@ -413,6 +417,7 @@ namespace StringStuff_C_sharp
         #region Make it a Palindrome
         static int MinimumPalindrome(string str)
         {
+            str = str.ToLower();
             return 0;
         }
         static void TestMinimumPalindrome()
@@ -429,8 +434,29 @@ namespace StringStuff_C_sharp
         #region Distance to Nearest Vowel
         static int[] DistanceToNearestVowel(string str)
         {
+            int[] distances = new int[str.Length];
+            for (int i = 0; i < str.Length; i++)
+            {
+                distances[i] = -1;
+            }
 
-            return new int[] { };
+            char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+            str = str.ToLower();
+
+            List<int> vowelIndexes = new List<int>();
+            for (int i = 0; i < str.Length; i++)
+            {
+                foreach (char vowel in vowels)
+                {
+                    if (str[i] == vowel)
+                    {
+                        vowelIndexes.Add(i);
+                        distances[i] = 0;
+                    }
+                }
+            }
+
+            return distances;
         }
         static void TestDistanceToNearestVowel()
         {
@@ -553,6 +579,7 @@ namespace StringStuff_C_sharp
         #region Character Permutations
         static string[] Permutations(string str)
         {
+            str = str.ToLower();
             return new string[] { };
         }
         static void TestPermutations()
