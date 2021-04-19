@@ -59,6 +59,10 @@ namespace StringStuff_C_sharp
             Console.WriteLine();
 
             TestReverseString();
+            Console.WriteLine();
+
+            TestBracketMatch();
+            Console.WriteLine();
 
             Console.ReadLine();
         }
@@ -595,7 +599,7 @@ namespace StringStuff_C_sharp
                 {
                     if (i + 1 == output.Length)
                     {
-                        Console.Write(output[i]);
+                        Console.WriteLine(output[i]);
                     }
                     else
                     {
@@ -609,7 +613,7 @@ namespace StringStuff_C_sharp
         #region Maximum Occurrence
         static string MaximumOccurance(string str)
         {
-            return "No repetition";
+            return "none";
         }
         static void TestMaximumOccurance()
         {
@@ -617,7 +621,7 @@ namespace StringStuff_C_sharp
             string[] words = new string[] { "Computer Science", "Edabit", "System admin", "the quick brown fox jumps over the lazy dog" };
             foreach (var item in words)
             {
-                Console.WriteLine("The most common character(s) in " + item + " is/are " + MaximumOccurance(item));
+                Console.WriteLine("The most common character(s) in " + item + " is/are: " + MaximumOccurance(item));
             }
         }
         #endregion
@@ -641,6 +645,37 @@ namespace StringStuff_C_sharp
             foreach (var str in words)
             {
                 Console.WriteLine(str + " -> " + ReverseString(str));
+            }
+        }
+        #endregion
+
+        #region Bracket Matcher
+        static bool BracketMatch(string str)
+        {
+            if (!str.Contains('(') && !str.Contains(')'))
+            { // return false if there are no parentheses
+                return false;
+            }
+            int openCount = 0; // # of opening '(' parenetheses
+            int closeCount = 0; // # of closing ')' parentheses
+            return true;
+        }
+        static void TestBracketMatch()
+        {
+            Console.WriteLine("~~~~~~~~~~~~~~~~~ Bracket Matcher ~~~~~~~~~~~~~~~~~");
+            string[] inputs = new string[] { "H(el(lo) World)!", "(Hell())o World!)", "Hello World!" };
+
+            foreach (string input in inputs)
+            {
+                Console.Write(input + " --> ");
+                if (BracketMatch(input))
+                {
+                    Console.WriteLine("True");
+                }
+                else
+                {
+                    Console.WriteLine("False");
+                }
             }
         }
         #endregion
