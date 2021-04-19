@@ -144,3 +144,11 @@ Notes: Characters are case sensitive, so, for example, "C" and "c" are counted s
 Recursive Reverse
 Task: Given a string s, write a function that will reverse that string using recursion
 ========================================================
+Bracket Matcher
+Task: Given a string that contains any combination of parentheses, return true if the parentheses are properly matched and false if they are not
+Examples:
+	Input: “H(el(lo) World)”
+	Output: True
+Input: “(Hell())o World)”
+	Output: False
+Notes: If the input contains no parentheses, return false
