@@ -466,12 +466,12 @@ namespace StringStuff_C_sharp
             foreach (var item in words)
             {
                 output = DistanceToNearestVowel(item);
-                Console.WriteLine(item + " --> ");
+                Console.Write(item + " --> ");
                 for (int i = 0; i < output.Length; i++)
                 {
                     if (i + 1 == output.Length)
                     {
-                        Console.Write(output[i]);
+                        Console.WriteLine(output[i]);
                     }
                     else
                     {
