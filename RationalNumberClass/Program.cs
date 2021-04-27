@@ -61,15 +61,6 @@ namespace RationalNumberClass
             }
         }
 
-        private int FindGCD(int a, int b)
-        {
-            if (b == 0)
-            {
-                return a;
-            }
-            return FindGCD(b, a % b);
-        }
-
         public override string ToString()
         {
             if (denominator == 1 || denominator == -1)
@@ -83,8 +74,35 @@ namespace RationalNumberClass
             }
             return numerator + "/" + denominator;
         }
+        // Operator overloads
+        public static RationalNumber operator+(RationalNumber other)
+        {
+            return new RationalNumber(1,1);
+        }
+        /// <summary>
+        /// Helper method to find the gcd of the numerator and denominator
+        /// </summary>
+        private int FindGCD(int a, int b)
+        {
+            if (b == 0)
+            {
+                return a;
+            }
+            return FindGCD(b, a % b);
+        }
 
         public int Numerator { get { return numerator; } }
         public int Denominator { get { return denominator; } }
+        public int Sign
+        {
+            get
+            {
+                if (numerator / denominator > 0)
+                    return 1;
+                if (numerator / denominator < 0)
+                    return -1;
+                return 0;
+            }
+        }
     }
 }
