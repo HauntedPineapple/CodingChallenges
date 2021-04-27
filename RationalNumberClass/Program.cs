@@ -11,15 +11,15 @@ namespace RationalNumberClass
         static void Main(string[] args)
         {
             RationalNumber rNum = new RationalNumber(1, 2);
-            Console.WriteLine("Numerator --> " + rNum.Numerator + "Denominator --> " + rNum.Denominator);
+            Console.WriteLine("Numerator --> " + rNum.Numerator + "   Denominator --> " + rNum.Denominator);
             Console.WriteLine(rNum.ToString());
             int[] numerators = new int[] { 10, 2, -16 };
             int[] denominators = new int[] { 8, -1, -64 };
             for (int i = 0; i < numerators.Length; i++)
             {
                 rNum = new RationalNumber(numerators[i], denominators[i]);
-                Console.WriteLine("Numerator --> " + rNum.Numerator + "Denominator --> " + rNum.Denominator);
-                Console.WriteLine("rNum --> "+rNum.ToString());
+                Console.WriteLine("Numerator --> " + rNum.Numerator + "   Denominator --> " + rNum.Denominator);
+                Console.WriteLine("rNum --> " + rNum.ToString());
             }
 
             Console.ReadLine();
@@ -46,18 +46,28 @@ namespace RationalNumberClass
             else
             {
                 denominator = den;
-            }
 
-            if (denominator < 0 && numerator < 0)
+
+                if (denominator < 0 && numerator < 0)
+                {
+                    numerator *= -1;
+                    denominator *= -1;
+                }
+
+                //reduce to simplest form
+                int gcd = FindGCD(numerator, denominator);
+                numerator /= gcd;
+                denominator /= gcd;
+            }
+        }
+
+        private int FindGCD(int a, int b)
+        {
+            if (b == 0)
             {
-                numerator *= -1;
-                denominator *= -1;
+                return a;
             }
-
-            if (numerator % denominator == 0)
-            {
-
-            }
+            return FindGCD(b, a % b);
         }
 
         public override string ToString()
