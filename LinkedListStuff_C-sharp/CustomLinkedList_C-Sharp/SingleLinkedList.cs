@@ -13,27 +13,37 @@ namespace CustomLinkedList_C_Sharp
 
         public SingleLinkedList()
         {
-
+            count = 0;
+            head = null;
+            tail = null;
         }
 
         void Add(T data)
         {
-
+            count++;
         }
 
         public T this[int index]
         {
             get
             {
+                if (index < 0 || index >= count)
+                {
+                    throw new IndexOutOfRangeException("Invalid index");
+                }
+                SingleLinkedNode<T> current = head;
+                for (int a = 0; a < count - 1; a++)
+                { // loop until we're at the index
+                    current = current.Next;
+                }
+                return current.Data;
+            }
+            set
+            {
                 if (index < 0 || index > count)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                return head.Data;
-            }
-            set
-            {
-
             }
         }
     }
