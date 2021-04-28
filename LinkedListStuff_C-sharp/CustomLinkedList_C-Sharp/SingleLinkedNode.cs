@@ -23,6 +23,16 @@ namespace CustomLinkedList_C_Sharp
         }
 
         public T Data { get { return data; } }
-        public SingleLinkedNode<T> Next { get { return next; } }
+        public SingleLinkedNode<T> Next
+        {
+            get
+            {
+                return next;
+            }
+            set
+            {
+                next = value;
+            }
+        }
     }
 }

@@ -21,13 +21,20 @@ namespace CustomLinkedList_C_Sharp
 
         }
 
-        T GetData(int index)
+        public T this[int index]
         {
-            if (index < 0 || index > count)
+            get
             {
-                throw new ArgumentOutOfRangeException();
+                if (index < 0 || index > count)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                return head.Data;
             }
-            return head.Data;
+            set
+            {
+
+            }
         }
     }
 }
