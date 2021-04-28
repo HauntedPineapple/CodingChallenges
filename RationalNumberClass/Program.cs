@@ -10,17 +10,58 @@ namespace RationalNumberClass
     {
         static void Main(string[] args)
         {
-            RationalNumber rNum = new RationalNumber(1, 2);
-            Console.WriteLine("Numerator --> " + rNum.Numerator + "   Denominator --> " + rNum.Denominator);
-            Console.WriteLine(rNum.ToString());
-            int[] numerators = new int[] { 10, 2, -16 };
-            int[] denominators = new int[] { 8, -1, -64 };
-            for (int i = 0; i < numerators.Length; i++)
+            List<RationalNumber> rNums = new List<RationalNumber>();
+            rNums.Add(new RationalNumber(1, 2)); //#0
+            rNums.Add(new RationalNumber(10, 8)); //#1
+            rNums.Add(new RationalNumber(2, -1)); //#2
+            rNums.Add(new RationalNumber(-16, -64)); //#3
+
+            Console.WriteLine("~~~~~~~~~ Part One ~~~~~~~~~");
+            for (int i = 0; i < rNums.Count; i++)
             {
-                rNum = new RationalNumber(numerators[i], denominators[i]);
-                Console.WriteLine("Numerator --> " + rNum.Numerator + "   Denominator --> " + rNum.Denominator);
-                Console.WriteLine("rNum --> " + rNum.ToString());
+                Console.WriteLine("Numerator --> " + rNums[i].Numerator + "   Denominator --> " + rNums[i].Denominator);
+                Console.WriteLine(rNums[i].ToString());
             }
+            Console.WriteLine();
+
+            Console.WriteLine("~~~~~~~~~ Part Two ~~~~~~~~~");
+            int number = 1;
+            RationalNumber rNum_1, rNum_2, result;
+
+            Console.WriteLine(" ~~~~~~ Addition ~~~~~~ ");
+            rNum_1 = new RationalNumber(1, 2);
+            rNum_2 = new RationalNumber(10, 8);
+            result = rNum_1 + rNum_2;
+            Console.WriteLine(" "+rNum_1.ToString() + " + " + rNum_2.ToString() + " = " + result.ToString());
+            Console.WriteLine();
+
+            Console.WriteLine(" ~~~~~~ Multiplication ~~~~~~ ");
+            rNum_1 = new RationalNumber(1, 2);
+            rNum_2 = new RationalNumber(2, -1);
+            result = rNum_1 * rNum_2;
+            Console.WriteLine(" " + rNum_1.ToString() + " * " + rNum_2.ToString() + " = " + result.ToString());
+            Console.WriteLine();
+
+            Console.WriteLine(" ~~~~~~ Subtraction ~~~~~~ ");
+            rNum_1 = new RationalNumber(10, 8);
+            rNum_2 = new RationalNumber(-1, 4);
+            result = rNum_1 - rNum_2;
+            Console.WriteLine(" " + rNum_1.ToString() + " - " + rNum_2.ToString() + " = " + result.ToString());
+            Console.WriteLine();
+
+            Console.WriteLine(" ~~~~~~ Division ~~~~~~ ");
+            rNum_1 = new RationalNumber(7, 4);
+            rNum_2 = new RationalNumber(2, -1);
+            result = rNum_1 - rNum_2;
+            Console.WriteLine(" " + rNum_1.ToString() + " - " + rNum_2.ToString() + " = " + result.ToString());
+            Console.WriteLine();
+
+            Console.WriteLine(" ~~~~~~ Unary ~~~~~~ ");
+            rNum_1 = new RationalNumber(1, 2);
+            rNum_2 = new RationalNumber(2, -1);
+            Console.WriteLine(" rNum_1 = "+rNum_1+"\t-rNum_1 = "+(-rNum_1));
+            Console.WriteLine(" rNum_2 = "+rNum_2+"\t-rNum_2 = "+(-rNum_2));
+            Console.WriteLine();
 
             Console.ReadLine();
         }
@@ -74,14 +115,77 @@ namespace RationalNumberClass
             }
             return numerator + "/" + denominator;
         }
-        // Operator overloads
-        public static RationalNumber operator+(RationalNumber other)
+        #region Operator Overloads
+        public static RationalNumber operator -(RationalNumber a)
         {
-            return new RationalNumber(1,1);
+            return a * -1;
         }
-        /// <summary>
-        /// Helper method to find the gcd of the numerator and denominator
-        /// </summary>
+
+        // Addition
+        public static RationalNumber operator +(RationalNumber frac, int num)
+        {
+            frac.numerator += num * frac.denominator;
+            return frac;
+        }
+        public static RationalNumber operator +(int num, RationalNumber frac)
+        {
+            frac.numerator += num * frac.denominator;
+            return frac;
+        }
+        public static RationalNumber operator +(RationalNumber a, RationalNumber b)
+        {
+            a.numerator *= b.denominator;
+            b.numerator *= a.denominator;
+            return new RationalNumber(a.numerator + b.numerator, a.denominator * b.denominator);
+        }
+
+        // Subtraction
+        public static RationalNumber operator -(RationalNumber frac, int num)
+        {
+            frac.numerator = frac.numerator - (num * frac.denominator);
+            return frac;
+        }
+        public static RationalNumber operator -(int num, RationalNumber frac)
+        {
+            frac.numerator = (num * frac.denominator) - frac.numerator;
+            return frac;
+        }
+        public static RationalNumber operator -(RationalNumber a, RationalNumber b)
+        {
+            a.numerator *= b.denominator;
+            b.numerator *= a.denominator;
+            return new RationalNumber(a.numerator - b.numerator, a.denominator * b.denominator);
+        }
+
+        // Multiplication
+        public static RationalNumber operator *(RationalNumber frac, int num)
+        {
+            return new RationalNumber(1, 1);
+        }
+        public static RationalNumber operator *(int num, RationalNumber frac)
+        {
+            return new RationalNumber(1, 1);
+        }
+        public static RationalNumber operator *(RationalNumber a, RationalNumber b)
+        {
+            return new RationalNumber(1, 1);
+        }
+
+        // Division
+        public static RationalNumber operator /(RationalNumber frac, int num)
+        {
+            return new RationalNumber(1, 1);
+        }
+        public static RationalNumber operator /(int num, RationalNumber frac)
+        {
+            return new RationalNumber(1, 1);
+        }
+        public static RationalNumber operator /(RationalNumber a, RationalNumber b)
+        {
+            return new RationalNumber(1, 1);
+        }
+        #endregion
+
         private int FindGCD(int a, int b)
         {
             if (b == 0)
