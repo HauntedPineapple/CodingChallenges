@@ -245,7 +245,12 @@ namespace RationalNumberClass
             }
             return numerator + "/" + denominator;
         }
+
         #region Operator Overloads
+        // TODO:
+        //   1) Add Equals and GetHashCode overrides
+        //   2) Implement implicit and explicit conversion to and from the C# decimal value type
+
         // Comparison
         public static bool operator ==(RationalNumber a, RationalNumber b)
         {
