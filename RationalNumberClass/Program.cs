@@ -11,11 +11,15 @@ namespace RationalNumberClass
         static void Main(string[] args)
         {
             List<RationalNumber> rNums = new List<RationalNumber>();
-            rNums.Add(new RationalNumber(1, 2)); //#0
-            rNums.Add(new RationalNumber(10, 8)); //#1
-            rNums.Add(new RationalNumber(2, -1)); //#2
-            rNums.Add(new RationalNumber(-16, -64)); //#3
+            rNums.Add(new RationalNumber(1, 2));
+            rNums.Add(new RationalNumber(10, 8));
+            rNums.Add(new RationalNumber(2, -1));
+            rNums.Add(new RationalNumber(-16, -64));
+            int number = 1;
+            bool compare = false;
+            RationalNumber rNum_1, rNum_2, result;
 
+            #region Part One
             Console.WriteLine("~~~~~~~~~ Part One ~~~~~~~~~");
             for (int i = 0; i < rNums.Count; i++)
             {
@@ -23,23 +27,23 @@ namespace RationalNumberClass
                 Console.WriteLine(rNums[i].ToString());
             }
             Console.WriteLine();
+            #endregion
 
+            #region Part Two
             Console.WriteLine("~~~~~~~~~ Part Two ~~~~~~~~~");
-            int number = 1;
-            RationalNumber rNum_1, rNum_2, result;
-
             Console.WriteLine(" ~~~~~~ Addition ~~~~~~ ");
             rNum_1 = new RationalNumber(1, 2);
             rNum_2 = new RationalNumber(10, 8);
             result = rNum_1 + rNum_2;
             Console.WriteLine(" " + rNum_1.ToString() + " + " + rNum_2.ToString() + " = " + result.ToString());
-            Console.WriteLine();
-
-            Console.WriteLine(" ~~~~~~ Multiplication ~~~~~~ ");
-            rNum_1 = new RationalNumber(1, 2);
-            rNum_2 = new RationalNumber(2, -1);
-            result = rNum_1 * rNum_2;
-            Console.WriteLine(" " + rNum_1.ToString() + " * " + rNum_2.ToString() + " = " + result.ToString());
+            rNum_1 = new RationalNumber(3, 4);
+            number = 7;
+            result = rNum_1 + number;
+            Console.WriteLine(" " + rNum_1.ToString() + " + " + number + " = " + result.ToString());
+            rNum_1 = new RationalNumber(1, 7);
+            number = 5;
+            result = number + rNum_1;
+            Console.WriteLine(" " + number + " + " + rNum_1.ToString() + " = " + result.ToString());
             Console.WriteLine();
 
             Console.WriteLine(" ~~~~~~ Subtraction ~~~~~~ ");
@@ -47,6 +51,29 @@ namespace RationalNumberClass
             rNum_2 = new RationalNumber(-1, 4);
             result = rNum_1 - rNum_2;
             Console.WriteLine(" " + rNum_1.ToString() + " - " + rNum_2.ToString() + " = " + result.ToString());
+            rNum_1 = new RationalNumber(3, 7);
+            number = 3;
+            result = rNum_1 - number;
+            Console.WriteLine(" " + rNum_1.ToString() + " - " + number + " = " + result.ToString());
+            rNum_1 = new RationalNumber(5, 8);
+            number = 6;
+            result = number - rNum_1;
+            Console.WriteLine(" " + number + " - " + rNum_1.ToString() + " = " + result.ToString());
+            Console.WriteLine();
+
+            Console.WriteLine(" ~~~~~~ Multiplication ~~~~~~ ");
+            rNum_1 = new RationalNumber(1, 2);
+            rNum_2 = new RationalNumber(2, -1);
+            result = rNum_1 * rNum_2;
+            Console.WriteLine(" " + rNum_1.ToString() + " * " + rNum_2.ToString() + " = " + result.ToString());
+            rNum_1 = new RationalNumber(5, 6);
+            number = 8;
+            result = rNum_1 * number;
+            Console.WriteLine(" " + rNum_1.ToString() + " * " + number + " = " + result.ToString());
+            rNum_1 = new RationalNumber(6, 7);
+            number = 2;
+            result = number * rNum_1;
+            Console.WriteLine(" " + number + " * " + rNum_1.ToString() + " = " + result.ToString());
             Console.WriteLine();
 
             Console.WriteLine(" ~~~~~~ Division ~~~~~~ ");
@@ -54,14 +81,94 @@ namespace RationalNumberClass
             rNum_2 = new RationalNumber(2, -1);
             result = rNum_1 / rNum_2;
             Console.WriteLine(" " + rNum_1.ToString() + " / " + rNum_2.ToString() + " = " + result.ToString());
+            rNum_1 = new RationalNumber(1, 4);
+            number = 3;
+            result = rNum_1 / number;
+            Console.WriteLine(" " + rNum_1.ToString() + " / " + number + " = " + result.ToString());
+            rNum_1 = new RationalNumber(3, 8);
+            number = 6;
+            result = number / rNum_1;
+            Console.WriteLine(" " + number + " / " + rNum_1.ToString() + " = " + result.ToString());
             Console.WriteLine();
 
             Console.WriteLine(" ~~~~~~ Unary ~~~~~~ ");
             rNum_1 = new RationalNumber(1, 2);
             rNum_2 = new RationalNumber(2, -1);
-            Console.WriteLine(" rNum_1 = " + rNum_1 + "\t-rNum_1 = " + (-rNum_1));
-            Console.WriteLine(" rNum_2 = " + rNum_2 + "\t-rNum_2 = " + (-rNum_2));
+            Console.WriteLine(" rNum_1 = " + rNum_1.ToString() + "\t-rNum_1 = " + (-rNum_1).ToString());
+            Console.WriteLine(" rNum_2 = " + rNum_2.ToString() + "\t-rNum_2 = " + (-rNum_2).ToString());
             Console.WriteLine();
+            #endregion
+
+            #region Part Three
+            Console.WriteLine("~~~~~~~~~ Part Three ~~~~~~~~~");
+            rNum_1 = new RationalNumber(1, 2);
+            rNum_2 = new RationalNumber(2, 4);
+            compare = rNum_1 == rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " == " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(2, 8);
+            rNum_2 = new RationalNumber(1, 2);
+            compare = rNum_1 == rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " == " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            Console.WriteLine();
+
+            rNum_1 = new RationalNumber(2, 3);
+            rNum_2 = new RationalNumber(5, 6);
+            compare = rNum_1 != rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " != " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(1, 4);
+            rNum_2 = new RationalNumber(2, 8);
+            compare = rNum_1 != rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " != " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            Console.WriteLine();
+
+            rNum_1 = new RationalNumber(3, 10);
+            rNum_2 = new RationalNumber(3, 5);
+            compare = rNum_1 > rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " > " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(4, 5);
+            rNum_2 = new RationalNumber(2, 3);
+            compare = rNum_1 > rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " > " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            Console.WriteLine();
+
+            rNum_1 = new RationalNumber(1, 2);
+            rNum_2 = new RationalNumber(2, 3);
+            compare = rNum_1 < rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " < " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(4, 5);
+            rNum_2 = new RationalNumber(2, 8);
+            compare = rNum_1 < rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " < " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            Console.WriteLine();
+
+            rNum_1 = new RationalNumber(5, 6);
+            rNum_2 = new RationalNumber(1, 5);
+            compare = rNum_1 >= rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " >= " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(1, 3);
+            rNum_2 = new RationalNumber(2, 3);
+            compare = rNum_1 >= rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " >= " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(6, 9);
+            rNum_2 = new RationalNumber(2, 3);
+            compare = rNum_1 >= rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " >= " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            Console.WriteLine();
+
+            rNum_1 = new RationalNumber(2, 5);
+            rNum_2 = new RationalNumber(6, 3);
+            compare = rNum_1 <= rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " <= " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(4, 5);
+            rNum_2 = new RationalNumber(1, 10);
+            compare = rNum_1 <= rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " <= " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            rNum_1 = new RationalNumber(6, 7);
+            rNum_2 = new RationalNumber(18, 21);
+            compare = rNum_1 <= rNum_2;
+            Console.WriteLine(" " + rNum_1.Numerator + "/" + rNum_1.Denominator + " <= " + rNum_2.Numerator + "/" + rNum_2.Denominator + " --> " + compare.ToString());
+            Console.WriteLine();
+            #endregion
 
             Console.ReadLine();
         }
@@ -94,16 +201,39 @@ namespace RationalNumberClass
                     numerator *= -1;
                     denominator *= -1;
                 }
-
-                //reduce to simplest form
-                int gcd = FindGCD(numerator, denominator);
-                numerator /= gcd;
-                denominator /= gcd;
             }
+        }
+
+        public static RationalNumber Simplify(RationalNumber frac)
+        {
+            if (frac.denominator == 1 || frac.denominator == -1)
+            {
+                return frac;
+            }
+            if (frac.denominator < 0)
+            {
+                frac.denominator *= -1;
+                frac.numerator *= -1;
+            }
+            int gcd = FindGCD(frac.numerator, frac.denominator);
+            frac.numerator /= gcd;
+            frac.denominator /= gcd;
+            return frac;
+        }
+        public static int FindGCD(int a, int b)
+        {
+            if (b == 0)
+            {
+                return a;
+            }
+            return FindGCD(b, a % b);
         }
 
         public override string ToString()
         {
+            int gcd = FindGCD(numerator, denominator);
+            numerator /= gcd;
+            denominator /= gcd;
             if (denominator == 1 || denominator == -1)
             {
                 return numerator.ToString();
@@ -116,6 +246,73 @@ namespace RationalNumberClass
             return numerator + "/" + denominator;
         }
         #region Operator Overloads
+        // Comparison
+        public static bool operator ==(RationalNumber a, RationalNumber b)
+        {
+            a = Simplify(a);
+            b = Simplify(b);
+            if (a.numerator == b.numerator && a.denominator == b.denominator)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator !=(RationalNumber a, RationalNumber b)
+        {
+            a = Simplify(a);
+            b = Simplify(b);
+            if (a.numerator != b.numerator || a.denominator != b.denominator)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator <(RationalNumber a, RationalNumber b)
+        {
+            a = Simplify(a);
+            b = Simplify(b);
+            if (a.numerator * b.denominator < b.numerator * a.denominator)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator >(RationalNumber a, RationalNumber b)
+        {
+            a = Simplify(a);
+            b = Simplify(b);
+            if (a.numerator * b.denominator > b.numerator * a.denominator)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator <=(RationalNumber a, RationalNumber b)
+        {
+            if (a == b)
+            {
+                return true;
+            }
+            if (a < b)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool operator >=(RationalNumber a, RationalNumber b)
+        {
+            if (a == b)
+            {
+                return true;
+            }
+            if (a > b)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        // Unary
         public static RationalNumber operator -(RationalNumber a)
         {
             return a * -1;
@@ -191,15 +388,6 @@ namespace RationalNumberClass
             return a * new RationalNumber(b.denominator, b.numerator);
         }
         #endregion
-
-        private int FindGCD(int a, int b)
-        {
-            if (b == 0)
-            {
-                return a;
-            }
-            return FindGCD(b, a % b);
-        }
 
         public int Numerator { get { return numerator; } }
         public int Denominator { get { return denominator; } }
