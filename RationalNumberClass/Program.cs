@@ -32,7 +32,7 @@ namespace RationalNumberClass
             rNum_1 = new RationalNumber(1, 2);
             rNum_2 = new RationalNumber(10, 8);
             result = rNum_1 + rNum_2;
-            Console.WriteLine(" "+rNum_1.ToString() + " + " + rNum_2.ToString() + " = " + result.ToString());
+            Console.WriteLine(" " + rNum_1.ToString() + " + " + rNum_2.ToString() + " = " + result.ToString());
             Console.WriteLine();
 
             Console.WriteLine(" ~~~~~~ Multiplication ~~~~~~ ");
@@ -52,15 +52,15 @@ namespace RationalNumberClass
             Console.WriteLine(" ~~~~~~ Division ~~~~~~ ");
             rNum_1 = new RationalNumber(7, 4);
             rNum_2 = new RationalNumber(2, -1);
-            result = rNum_1 - rNum_2;
-            Console.WriteLine(" " + rNum_1.ToString() + " - " + rNum_2.ToString() + " = " + result.ToString());
+            result = rNum_1 / rNum_2;
+            Console.WriteLine(" " + rNum_1.ToString() + " / " + rNum_2.ToString() + " = " + result.ToString());
             Console.WriteLine();
 
             Console.WriteLine(" ~~~~~~ Unary ~~~~~~ ");
             rNum_1 = new RationalNumber(1, 2);
             rNum_2 = new RationalNumber(2, -1);
-            Console.WriteLine(" rNum_1 = "+rNum_1+"\t-rNum_1 = "+(-rNum_1));
-            Console.WriteLine(" rNum_2 = "+rNum_2+"\t-rNum_2 = "+(-rNum_2));
+            Console.WriteLine(" rNum_1 = " + rNum_1 + "\t-rNum_1 = " + (-rNum_1));
+            Console.WriteLine(" rNum_2 = " + rNum_2 + "\t-rNum_2 = " + (-rNum_2));
             Console.WriteLine();
 
             Console.ReadLine();
@@ -160,29 +160,35 @@ namespace RationalNumberClass
         // Multiplication
         public static RationalNumber operator *(RationalNumber frac, int num)
         {
-            return new RationalNumber(1, 1);
+
+            return new RationalNumber(frac.numerator * num, frac.denominator);
         }
         public static RationalNumber operator *(int num, RationalNumber frac)
         {
-            return new RationalNumber(1, 1);
+            return new RationalNumber(num * frac.numerator, frac.denominator);
         }
         public static RationalNumber operator *(RationalNumber a, RationalNumber b)
         {
-            return new RationalNumber(1, 1);
+            return new RationalNumber(a.numerator * b.numerator, a.denominator * b.denominator);
         }
 
         // Division
         public static RationalNumber operator /(RationalNumber frac, int num)
         {
-            return new RationalNumber(1, 1);
+            if (num == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            return frac * new RationalNumber(1, num);
         }
         public static RationalNumber operator /(int num, RationalNumber frac)
         {
-            return new RationalNumber(1, 1);
+            return num * new RationalNumber(frac.denominator, frac.numerator);
         }
         public static RationalNumber operator /(RationalNumber a, RationalNumber b)
         {
-            return new RationalNumber(1, 1);
+
+            return a * new RationalNumber(b.denominator, b.numerator);
         }
         #endregion
 
