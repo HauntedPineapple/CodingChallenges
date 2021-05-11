@@ -170,6 +170,118 @@ namespace RationalNumberClass
             Console.WriteLine();
             #endregion
 
+            #region Part Four
+            Console.WriteLine("~~~~~~~~~ Part Four ~~~~~~~~~");
+            RationalNumber frac = new RationalNumber(3, 5);
+            int intNum = 4;
+            double doubleNum = 2.4;
+            decimal decNum = 2;
+
+            Console.WriteLine(" ----- .Equals() Override -----");
+            Console.WriteLine("  RATIONAL NUMBER");
+            rNum_1 = new RationalNumber(4, 1);
+            rNum_2 = new RationalNumber(4, 1);
+            Console.Write("   frac_1 = " + rNum_1.Numerator + "/" + rNum_1.Denominator);
+            Console.WriteLine("   frac_2 = " + rNum_2.Numerator + "/" + rNum_2.Denominator);
+            compare = rNum_1.Equals(rNum_2);
+            Console.WriteLine("   frac_1.Equals(frac_2) --> " + compare.ToString() + "\n");
+            rNum_1 = new RationalNumber(4, 1);
+            rNum_2 = new RationalNumber(8, 2);
+            Console.Write("   frac_1 = " + rNum_1.Numerator + "/" + rNum_1.Denominator);
+            Console.WriteLine("   frac_2 = " + rNum_2.Numerator + "/" + rNum_2.Denominator);
+            compare = rNum_1.Equals(rNum_2);
+            Console.WriteLine("   frac_1.Equals(frac_2) --> " + compare.ToString() + "\n");
+            rNum_1 = new RationalNumber(5, 6);
+            rNum_2 = new RationalNumber(8, 6);
+            Console.Write("   frac_1 = " + rNum_1.Numerator + "/" + rNum_1.Denominator);
+            Console.WriteLine("   frac_2 = " + rNum_2.Numerator + "/" + rNum_2.Denominator);
+            compare = rNum_1.Equals(rNum_2);
+            Console.WriteLine("   frac_1.Equals(frac_2) --> " + compare.ToString() + "\n");
+            rNum_1 = new RationalNumber(3, 5);
+            rNum_2 = new RationalNumber(3, 17);
+            Console.Write("   frac_1 = " + rNum_1.Numerator + "/" + rNum_1.Denominator);
+            Console.WriteLine("   frac_2 = " + rNum_2.Numerator + "/" + rNum_2.Denominator);
+            compare = rNum_1.Equals(rNum_2);
+            Console.WriteLine("   frac_1.Equals(frac_2) --> " + compare.ToString() + "\n");
+            rNum_1 = new RationalNumber(14, 18);
+            rNum_2 = new RationalNumber(7, 9);
+            Console.Write("   frac_1 = " + rNum_1.Numerator + "/" + rNum_1.Denominator);
+            Console.WriteLine("   frac_2 = " + rNum_2.Numerator + "/" + rNum_2.Denominator);
+            compare = rNum_1.Equals(rNum_2);
+            Console.WriteLine("   frac_1.Equals(frac_2) --> " + compare.ToString()+"\n\n");
+            
+            Console.WriteLine("  INT");
+            frac = new RationalNumber(4, 1);
+            intNum = 4;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + intNum);
+            compare = frac.Equals(intNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("");
+            frac = new RationalNumber(2, 3);
+            intNum = 3;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + intNum);
+            compare = frac.Equals(intNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("");
+            frac = new RationalNumber(10, 5);
+            intNum = 2;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + intNum);
+            compare = frac.Equals(intNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("\n");
+
+            Console.WriteLine("  DOUBLE");
+            frac = new RationalNumber(4, 5);
+            doubleNum = .8;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + doubleNum);
+            compare = frac.Equals(doubleNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("");
+            frac = new RationalNumber(7, 9);
+            doubleNum = .777777;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + doubleNum);
+            compare = frac.Equals(doubleNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("");
+            frac = new RationalNumber(5, 7);
+            doubleNum = 0.7142857143;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + doubleNum);
+            compare = frac.Equals(doubleNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("\n");
+
+            Console.WriteLine("  DECIMAL");
+            frac = new RationalNumber(4, 1);
+            decNum = 4;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + decNum);
+            compare = frac.Equals(decNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("");
+            frac = new RationalNumber(2, 3);
+            decNum = 3;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + decNum);
+            compare = frac.Equals(decNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("");
+            frac = new RationalNumber(10, 5);
+            decNum = 2;
+            Console.Write("   frac = " + frac.Numerator + "/" + frac.Denominator);
+            Console.WriteLine("   number = " + decNum);
+            compare = frac.Equals(decNum);
+            Console.WriteLine("   frac.Equals(number) --> " + compare.ToString());
+            Console.WriteLine("\n");
+
+            Console.WriteLine(" ---- .GetHashCode() Override ----");
+
+            #endregion
             Console.ReadLine();
         }
     }
@@ -229,6 +341,74 @@ namespace RationalNumberClass
             return FindGCD(b, a % b);
         }
 
+        // TODO:
+        //   1) Add Equals and GetHashCode overrides
+        //   2) Implement implicit and explicit conversion to and from the C# decimal value type
+
+        public override bool Equals(object obj)
+        {
+            /// TODO:
+            /// Add tests for the following types:
+            /// byte   long   sbyte   ulong
+            /// short  float  ushort  uint
+
+            try
+            {
+                this = Simplify(this);
+                if (obj is RationalNumber)
+                {
+                    RationalNumber other = (RationalNumber)obj;
+                    other = Simplify(other);
+                    if (numerator == other.numerator
+                        && denominator == other.denominator)
+                    {
+                        return true;
+                    }
+                }
+
+                else if (obj is decimal)
+                {
+                    decimal other = (decimal)obj;
+                    if ((decimal)numerator / denominator == other)
+                    {
+                        return true;
+                    }
+                }
+
+                else if (obj is double)
+                {
+                    double other = (double)obj;
+                    if ((double)numerator / denominator == other)
+                    {
+                        return true;
+                    }
+                }
+
+                else if (obj is int)
+                {
+                    int other = (int)obj;
+                    if (denominator == 1)
+                    {
+                        if (numerator == other)
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+            catch (InvalidCastException e)
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override string ToString()
         {
             int gcd = FindGCD(numerator, denominator);
@@ -247,10 +427,6 @@ namespace RationalNumberClass
         }
 
         #region Operator Overloads
-        // TODO:
-        //   1) Add Equals and GetHashCode overrides
-        //   2) Implement implicit and explicit conversion to and from the C# decimal value type
-
         // Comparison
         public static bool operator ==(RationalNumber a, RationalNumber b)
         {
