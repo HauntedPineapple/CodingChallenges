@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomLinkedList_C_Sharp
+namespace Custom_Linked_Lists
 {
-    class DoubleLinkedNode<T>
+    internal class SingleNode<T>
     {
     }
 }
